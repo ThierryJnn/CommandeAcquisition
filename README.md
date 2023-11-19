@@ -50,3 +50,5 @@ La fonction processCommand dont le code est le suivant, est relativement simple 
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/b08320f0-924c-403f-9d38-adc33f6ea744)
 
+On compare donc la chaîne de caractère command avec les mots help, start, stop et pinout grâce a strcmp() pour les fonctions ne prenant pas d'arguments.
+Pour les fonctions prenant des arguments comme speed (dont on parlera après) on utilise strncmp(). Si la chaîne de caractère ne correspond à aucune commande alors on affiche un message d'erreur "Command not found" 
