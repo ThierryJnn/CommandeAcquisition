@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;NUCLEO-G474RET6-Inverter_Pinout&apos;" deleteContents="false" description="Delete resource &apos;NUCLEO-G474RET6-Inverter_Pinout&apos;" element1="/NUCLEO-G474RET6-Inverter_Pinout" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1699610101855"/>&#x0A;<refactoring comment="Delete resource &apos;TP Bellanger Kararji Systeme Acquisition&apos;" deleteContents="true" description="Delete resource &apos;TP Bellanger Kararji Systeme Acquisition&apos;" element1="/TP Bellanger Kararji Systeme Acquisition" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1699610450082"/>
+</session>

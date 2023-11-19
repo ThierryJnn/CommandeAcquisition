@@ -1,0 +1,53 @@
+/*
+ * processCommand.c
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: thier
+ */
+
+#include "adc.h"
+#include "tim.h"
+#include "speed.h"
+#include "usart.h"
+#include "gpio.h"
+#include "string.h"
+#include "pinout.h"
+#include "startMotor.h"
+#include "stopMotor.h"
+
+int Power=0;
+
+void processCommand(char* command) {
+  if (strcmp(command, "help") == 0) {
+    // Affiche le message d'aide
+    HAL_UART_Transmit(&huart2, "Commandes disponibles :\r\n", strlen("Commandes disponibles :\r\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart2, " - help : Affiche ce message d'aide\r\n", strlen(" - help : Affiche ce message d'aide\r\n"), HAL_MAX_DELAY);
+    // Ajoutez d'autres commandes et leurs descriptions ici
+    return 0;
+  }
+  if (strcmp(command, "pinout") == 0) {
+	  pinout(); // Appeler la fonction pinout
+	  return 0;
+  }
+  if (strcmp(command, "start") == 0) {
+	  startMotor(); // Appeler la fonction startMotor
+	  return 0;
+  }
+  if (strcmp(command, "stop") == 0) {
+	  stopMotor(); // Appeler la fonction stopMotor
+	  return 0;
+    }
+  if (strncmp(command, "speed", 5) == 0) {
+              // Extrait les quatre chiffres suivant "speed"
+              int digit;
+              if (sscanf(command + 5, "%d", &digit) == 1) {
+                  speed(digit);
+              } else {
+                  HAL_UART_Transmit(&huart2, "Format incorrect. Utilisation : speed <chiffre1><chiffre2><chiffre3><chiffre4>\r\n", strlen("Format incorrect. Utilisation : speed <chiffre1><chiffre2><chiffre3><chiffre4>\r\n"), HAL_MAX_DELAY);
+              }
+  }
+  else {
+	  HAL_UART_Transmit(&huart2, "Command not found\r\n", strlen("Command not found\r\n"), HAL_MAX_DELAY);
+  }
+  // Ajoutez d'autres conditions pour d'autres commandes si nécessaire
+}
