@@ -39,6 +39,9 @@ On affiche le message d'accueil avec la fonction HAL_UART_Transmit(), la fonctio
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/217868b4-267f-4b30-8010-d5a12f4d1ab3)
 
-Voici le code présent dans la boucle infinie qui permet de 
+Voici le code présent dans la boucle infinie:
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/194977eb-22d1-4895-9551-93957defd865)
+
+Pour résumer, si une interruption est générée (it_uart2==1) et qu'elle n'est pas le caractère ENTER (uartRxBuffer[0]!=ENTER) on ajoute le caractère dans la chaîne de caractère command (command[idx++]=uartRxBuffer[0]). Si le caractère est ENTER on fait un retour à la ligne en envoyant "\r\n", on envoie la commande dans la fonction processCommand() qui pourra la traiter, on remet idx à 0 et on efface le contenue de la chaîne command en mémoire.
+Après réception de n'importe quel caractère on remet la variable d'interruption à 0 (it_uart2=0).
