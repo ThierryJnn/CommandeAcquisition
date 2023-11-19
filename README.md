@@ -55,3 +55,4 @@ Pour les fonctions prenant des arguments comme speed (dont on parlera après) on
 
 Ce n'est pas le cas sur la capture mais dans la partie dédiée à la fonction help on peut afficher un descriptif de chaque fonction simplement avec la fonction HAL_UART_Transmit(), tel est le principe de cette fonction.
 Les fonctions pinout, start et stop sont définie dans leur propre fichier pour rendre le code plus lisible et ordonné.
+*note: la variable Power n'a plus d'utilité ici et doit être enlevé
