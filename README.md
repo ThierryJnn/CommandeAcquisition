@@ -88,6 +88,8 @@ Le temps mort est la période durant laquelle le transistor passe d'un état à 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/180b66fd-006a-4201-98b1-af7a2892cf1e)
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/66345e67-5ab2-47e9-801b-03aafa22f024)
 
+Le pulse des channels doit être complémentaire à 1024 comme expliqué précédement, ici on le règle à 512 pour les deux soit une rapport cyclique de 50% donc un moteur à l'arret met cela n'a pas beaucoup d'importance puisque ces valeurs sont modifiées par la suite dans le programme.
+
 On peut observer ces 4 PWMs sur un oscilloscope ci-dessous, 1 et 2 sont complémentaire tout comme 3 et 4. 
 
 ![tek00000](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/b7be2008-98be-4b9c-9a7e-343f58ef9222)
@@ -95,3 +97,5 @@ On peut observer ces 4 PWMs sur un oscilloscope ci-dessous, 1 et 2 sont complém
 On peut également visualiser le temps mort ou dead time de 44ms.
 
 ![tek00001](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/4c87789f-19b9-4b1e-959f-2dfe1d0c3ae1)
+
+
