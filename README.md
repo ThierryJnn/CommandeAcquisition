@@ -62,3 +62,10 @@ Les fonctions pinout, start et stop sont définie dans leur propre fichier pour 
 La fonction pinout() est relativement similaire en terme de fonctionnement à help car il s'agit simplement d'afficher un message sur la console or ici on utilise une structure pour simplifier l'écriture du code.
 Là aussi la fonction n'est pas complète sur la capture puisqu'il manque l'information de certaines broches mais le principe est le même et la commande fonctionne.
 
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/82b136c2-766e-4465-a7af-b604677bf442)
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/250fecdb-2e7e-4ada-9503-aa6a9f2bcd6c)
+
+Les commandes start et stop redirigent directement vers les fonctions startMotor et stopMotor dans lequelles ont définit une variable Power agissant comme un booléen valant 1 si le moteur est allimenté et 0 si il ne l'est pas.
+
+
