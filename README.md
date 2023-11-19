@@ -70,7 +70,10 @@ Les commandes start et stop redirigent directement vers les fonctions startMotor
 
 Pour le démarrer on utilise les fonction HAL_TIM_PWM_Start() pour les PWMs des channels 1 et 2, HAL_TIMEx_PWM_Start() pour les PWMs complémentaires des channels 1 et 2.
 A l'inverse, pour l'éteindre on utilise les fonction HAL_TIM_PWM_Stop() pour les PWMs des channels 1 et 2, HAL_TIMEx_PWM_Stop() pour les PWMs complémentaires des channels 1 et 2.
-On est donc bien en commande complémentaire décalée.
+On est donc bien en commande complémentaire décalée. 
+
+Par mesure de précaution après un arret ou un démarrage, on met le moteur à 50% de rapport cyclique (donc à vitesse 0) avec les commandes __HAL_TIM_SET_COMPARE() sur les channels 1 et 2.
+Les valeurs dans ces fonctions représente le rapport cyclique et doivent être complémentaires pour atteindre 1024. Par exemple pour un rapport cylique de 50% comme ici on met les deux channels à 512 (512+512=1024).
 
 
 
