@@ -75,5 +75,6 @@ On est donc bien en commande complémentaire décalée.
 Par mesure de précaution après un arret ou un démarrage, on met le moteur à 50% de rapport cyclique (donc à vitesse 0) avec les commandes __HAL_TIM_SET_COMPARE() sur les channels 1 et 2.
 Les valeurs dans ces fonctions représente le rapport cyclique et doivent être complémentaires pour atteindre 1024. Par exemple pour un rapport cylique de 50% comme ici on met les deux channels à 512 (512+512=1024).
 
-
+Si le moteur est déjà dans l'état dans lequel on veut le mettre on le signale simplement sur le shell.
+La variable Power étant externe, elle est commune au deux fonctions ce qui permet donc cette vérification.
 
