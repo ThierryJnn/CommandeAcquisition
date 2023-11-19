@@ -78,7 +78,7 @@ Les valeurs dans ces fonctions représente le rapport cyclique et doivent être 
 Si le moteur est déjà dans l'état dans lequel on veut le mettre on le signale simplement sur le shell.
 La variable Power étant externe, elle est commune aux deux fonctions ce qui permet donc cette vérification.
 
-Voici comment configurer les PWMs associées au TIM1 dans la section Timers du fichier .ioc
+Voici comment configurer les PWMs associées au TIM1 dans la section Timers du fichier .ioc .
 
 Il est important de régler le dead time (ou temps mort) à 44 ms, une valeur que l'on a récupéré sur la documentation des transistors utilisés sur le hacheur du PCB.
 Le temps mort est la période durant laquelle le transistor passe d'un état à l'autre, elle doit être prise en compte pour éviter une désynchronisation entre le programme et l'electronique du PCB ce qui pourrait l'endommager et empécher son bon fonctionnement.
