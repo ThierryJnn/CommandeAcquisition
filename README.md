@@ -78,6 +78,8 @@ Les valeurs dans ces fonctions représente le rapport cyclique et doivent être 
 Si le moteur est déjà dans l'état dans lequel on veut le mettre on le signale simplement sur le shell.
 La variable Power étant externe, elle est commune aux deux fonctions ce qui permet donc cette vérification.
 
+## Commande MCC basique
+
 Voici comment configurer les PWMs associées au TIM1 dans la section Timers du fichier .ioc .
 
 Il est important de régler le dead time (ou temps mort) à 44 ms, une valeur que l'on a récupéré sur la documentation des transistors utilisés sur le hacheur du PCB.
