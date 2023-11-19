@@ -55,7 +55,7 @@ Pour les fonctions prenant des arguments comme speed (dont on parlera après) on
 
 Ce n'est pas le cas sur la capture mais dans la partie dédiée à la fonction help on peut afficher un descriptif de chaque fonction simplement avec la fonction HAL_UART_Transmit(), tel est le principe de cette fonction.
 Les fonctions pinout, start et stop sont définie dans leur propre fichier pour rendre le code plus lisible et ordonné.
-*note: la variable Power n'a plus d'utilité ici et doit être enlevé
+La variable externe Power initialisée à 0 puisque le moteur commence "éteint" lorsque le programme est téléversé.
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/93e42f79-8d59-436e-99eb-98d15e0ed222)
 
@@ -66,6 +66,11 @@ Là aussi la fonction n'est pas complète sur la capture puisqu'il manque l'info
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/250fecdb-2e7e-4ada-9503-aa6a9f2bcd6c)
 
-Les commandes start et stop redirigent directement vers les fonctions startMotor et stopMotor dans lequelles ont définit une variable Power agissant comme un booléen valant 1 si le moteur est allimenté et 0 si il ne l'est pas.
+Les commandes start et stop redirigent directement vers les fonctions startMotor et stopMotor dans lequelles ont définit une variable externe Power agissant comme un booléen valant 1 si le moteur est allimenté et 0 si il ne l'est pas. Dans ces fonctions, on regarde si le moteur est allumé ou éteint et on change son état.
+
+Pour le démarrer on utilise les fonction HAL_TIM_PWM_Start() pour les PWMs des channels 1 et 2, HAL_TIMEx_PWM_Start() pour les PWMs complémentaires des channels 1 et 2.
+A l'inverse, pour l'éteindre on utilise les fonction HAL_TIM_PWM_Stop() pour les PWMs des channels 1 et 2, HAL_TIMEx_PWM_Stop() pour les PWMs complémentaires des channels 1 et 2.
+On est donc bien en commande complémentaire décalée.
+
 
 
