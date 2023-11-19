@@ -80,6 +80,10 @@ La variable Power étant externe, elle est commune aux deux fonctions ce qui per
 
 ## Commande MCC basique
 
+Cahier des charges :  
+-   Fréquence de la PWM : 20kHz.
+-   Temps mort minimum : à voir selon la datasheet des transistors (faire valider la valeur). 
+-   Résolution minimum : 10bits.
 
 Voici comment configurer les PWMs associées au TIM1 dans la section Timers du fichier .ioc .
 
