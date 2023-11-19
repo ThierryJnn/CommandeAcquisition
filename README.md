@@ -15,3 +15,5 @@ La liaison UART devra avoir comme fonctionnalité :
 -   stop : qui éteind l'étage de puissance du moteur (pour l'instant nous ne ferons qu'afficher un message de "Power OFF" dans la console)
 -   toute autre commande renverra un message dans la console "Command not found".
 -   Vider la chaine de caractère et mettez l'index pointant vers le prochain caractère à remplir à 0.
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/d1854832-a024-478c-bdf7-e82cbf9315c3)
