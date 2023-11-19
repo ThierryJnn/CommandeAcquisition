@@ -56,3 +56,9 @@ Pour les fonctions prenant des arguments comme speed (dont on parlera après) on
 Ce n'est pas le cas sur la capture mais dans la partie dédiée à la fonction help on peut afficher un descriptif de chaque fonction simplement avec la fonction HAL_UART_Transmit(), tel est le principe de cette fonction.
 Les fonctions pinout, start et stop sont définie dans leur propre fichier pour rendre le code plus lisible et ordonné.
 *note: la variable Power n'a plus d'utilité ici et doit être enlevé
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/93e42f79-8d59-436e-99eb-98d15e0ed222)
+
+La fonction pinout() est relativement similaire en terme de fonctionnement à help car il s'agit simplement d'afficher un message sur la console or ici on utilise une structure pour simplifier l'écriture du code.
+Là aussi la fonction n'est pas complète sur la capture puisqu'il manque l'information de certaines broches mais le principe est le même et la commande fonctionne.
+
