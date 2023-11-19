@@ -84,3 +84,6 @@ La variable Power étant externe, elle est commune aux deux fonctions ce qui per
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/66345e67-5ab2-47e9-801b-03aafa22f024)
 
 
+![tek00000](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/b7be2008-98be-4b9c-9a7e-343f58ef9222)
+
+![tek00001](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/4c87789f-19b9-4b1e-959f-2dfe1d0c3ae1)
