@@ -21,3 +21,5 @@ Le projet stm32cubeIDE sur lequel on se base configure déjà les connexions, no
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/d1854832-a024-478c-bdf7-e82cbf9315c3)
 
 On utilisera donc l'USART2.
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/194977eb-22d1-4895-9551-93957defd865)
