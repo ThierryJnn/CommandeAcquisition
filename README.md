@@ -45,3 +45,8 @@ Voici le code présent dans la boucle infinie:
 
 Pour résumer, si une interruption est générée (it_uart2==1) et qu'elle n'est pas le caractère ENTER (uartRxBuffer[0]!=ENTER) on ajoute le caractère dans la chaîne de caractère command (command[idx++]=uartRxBuffer[0]). Si le caractère est ENTER on fait un retour à la ligne en envoyant "\r\n", on envoie la commande dans la fonction processCommand() qui pourra la traiter, on remet idx à 0 et on efface le contenue de la chaîne command en mémoire.
 Après réception de n'importe quel caractère on remet la variable d'interruption à 0 (it_uart2=0).
+
+La fonction processCommand dont le code est le suivant, est relativement simple puisqu'il s'agit de simples comparaisons.
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/b08320f0-924c-403f-9d38-adc33f6ea744)
+
