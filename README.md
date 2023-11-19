@@ -76,5 +76,11 @@ Par mesure de précaution après un arret ou un démarrage, on met le moteur à 
 Les valeurs dans ces fonctions représente le rapport cyclique et doivent être complémentaires pour atteindre 1024. Par exemple pour un rapport cylique de 50% comme ici on met les deux channels à 512 (512+512=1024).
 
 Si le moteur est déjà dans l'état dans lequel on veut le mettre on le signale simplement sur le shell.
-La variable Power étant externe, elle est commune au deux fonctions ce qui permet donc cette vérification.
+La variable Power étant externe, elle est commune aux deux fonctions ce qui permet donc cette vérification.
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8f852da5-4d97-48bf-bb10-13151deeb2ad)
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/d34216b6-6df2-481c-adcf-ff8c81f0069f)
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/180b66fd-006a-4201-98b1-af7a2892cf1e)
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/66345e67-5ab2-47e9-801b-03aafa22f024)
+
 
