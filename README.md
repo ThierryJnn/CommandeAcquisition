@@ -16,4 +16,8 @@ La liaison UART devra avoir comme fonctionnalité :
 -   toute autre commande renverra un message dans la console "Command not found".
 -   Vider la chaine de caractère et mettez l'index pointant vers le prochain caractère à remplir à 0.
 
+Le projet stm32cubeIDE sur lequel on se base configure déjà les connexions, notament celles de l'UART pour pouvoir communiquer avec un terminal type Shell sur le PC.
+
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/d1854832-a024-478c-bdf7-e82cbf9315c3)
+
+On utilisera donc l'USART2.
