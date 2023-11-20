@@ -111,3 +111,14 @@ Pour commander moteur en vitesse on implémente une fonction speed qui prend en 
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/681c06f3-9c57-4535-8975-aba01dcd2fd0)
 
+Après être entré dans la fonction on vérifie premièrement que le moteur est bien allumé avec la variable Power.
+On instaure ensuite un limiteur de vitesse en limitant la que peut prendre speed en argument à 1024. Si on rentre la commande "speed 1400" par exemple, le programme se limitera à 1024.
+
+Avant de recupérer la valeur entré en argument dans la variable "vit" on écrit la valeur précédente de vit dans une variable appelée oldspeed. Une fois cette valeur sauvegardé on récupère la vitesse en argument (vit=digit). 
+Sauvegarder l'ancienne vitesse du moteur va nous permettre de créer une pente entre cette vitesse et la nouvelle ce qui nous évite de créer de forts appels de courant dans la MCC en passant d'une vitesse à l'autre par petits pas. Sans ça, la MCC se voit imposer un echellon en vitesse ce qui peut la faire "caller" et l'endommager.
+
+## Commande en boucle ouverte, mesure de vitesse et de courant
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8a1aab00-e521-44c9-9e21-a9cc8c186ca8)
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/00fd2797-bf2c-4fcc-af2c-7c482bf25034)
+
