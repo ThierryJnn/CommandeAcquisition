@@ -107,4 +107,5 @@ On peut également visualiser le temps mort ou dead time de 44ms.
 
 ![tek00001](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/4c87789f-19b9-4b1e-959f-2dfe1d0c3ae1)
 
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/681c06f3-9c57-4535-8975-aba01dcd2fd0)
 
