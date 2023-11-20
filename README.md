@@ -97,7 +97,7 @@ Le temps mort est la période durant laquelle le transistor passe d'un état à 
 
 La clock de la carte est de fréquence 170MHz or on souhaite des PWMs de fréquence 20kHz, on règle donc le PSC à 7 et le ARR à 1023 puisque $\frac{freq clock}{(PSC+1)(ARR+1)}=\frac{170MHz}{8*1024}=20751kHz\simeq 20kHz$
 
-Le pulse des channels doit être complémentaire à 1024 comme expliqué précédement, ici on le règle à 512 pour les deux soit une rapport cyclique de 50% donc un moteur à l'arret met cela n'a pas beaucoup d'importance puisque ces valeurs sont modifiées par la suite dans le programme.
+Le pulse des channels doit être complémentaire à 1024 comme expliqué précédement, ici on le règle à 512 pour les deux soit un rapport cyclique de 50% donc un moteur à l'arret mais cela n'a pas beaucoup d'importance puisque ces valeurs sont modifiées par la suite dans le programme.
 
 On peut observer ces 4 PWMs sur un oscilloscope ci-dessous, 1 et 2 sont complémentaire tout comme 3 et 4. 
 
