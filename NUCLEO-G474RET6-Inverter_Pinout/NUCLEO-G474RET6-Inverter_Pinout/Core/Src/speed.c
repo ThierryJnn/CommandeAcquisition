@@ -10,6 +10,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "string.h"
+#include "mesure.h"
 
 extern int Power;
 int vit=512;
@@ -46,8 +47,10 @@ void speed(int digit) {
     	}
     }
     int rapcycl= vit*100/1024;
+    mesureSpeed();
     snprintf(message, sizeof(message), "Speed: %d \r\n", vit);
     HAL_UART_Transmit(&huart2, message, strlen(message), HAL_MAX_DELAY);
     snprintf(message, sizeof(message), "Rapport cyclique: %d \r\n", rapcycl);
     HAL_UART_Transmit(&huart2, message, strlen(message), HAL_MAX_DELAY);
+
 }
