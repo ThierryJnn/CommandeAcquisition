@@ -32,6 +32,8 @@ Pour y parvenir nous devons gérer les interruptions sur les ports UART2 depuis 
 Maintenant lorsque l'on ecrira dans la console shell cela génèrera une interruption dans le programme qui poura lui permettre de prendre en compte les caractères envoyés.
 
 Dans main.c on commance par définir les variables qui nous servirons à executer des commandes et on en profite pour ajouter un message d'accueil au Shell qui nous sera utile notamment pour savoir si le programme à bien été réimplémenté par exemple.
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/53accdf4-baf6-4da3-909f-1f27bb0eaeea)
+
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/aaa5f0aa-3cb8-450b-b145-d89ee8ab19a2)
 
