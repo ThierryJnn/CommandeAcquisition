@@ -107,5 +107,7 @@ On peut également visualiser le temps mort ou dead time de 44ms.
 
 ![tek00001](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/4c87789f-19b9-4b1e-959f-2dfe1d0c3ae1)
 
+Pour commander moteur en vitesse on implémente une fonction speed qui prend en argument un nombre allant de 0 à 1024 qui est en fait le rapport cyclique du moteur. Un rapport cyclique de 0% (0) fait tourner le moteur à fond dans un sens, un rapport de 50% (512) met le moteur à l'arret et un rapport cylique de 100% (1024).
+
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/681c06f3-9c57-4535-8975-aba01dcd2fd0)
 
