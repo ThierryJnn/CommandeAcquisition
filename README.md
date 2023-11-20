@@ -117,6 +117,11 @@ On instaure ensuite un limiteur de vitesse en limitant la que peut prendre speed
 Avant de recupérer la valeur entré en argument dans la variable "vit" on écrit la valeur précédente de vit dans une variable appelée oldspeed. Une fois cette valeur sauvegardé on récupère la vitesse en argument (vit=digit). 
 Sauvegarder l'ancienne vitesse du moteur va nous permettre de créer une pente entre cette vitesse et la nouvelle ce qui nous évite de créer de forts appels de courant dans la MCC en passant d'une vitesse à l'autre par petits pas. Sans ça, la MCC se voit imposer un echellon en vitesse ce qui peut la faire "caller" et l'endommager.
 
+On vérifie si la nouvelle vitesse est inférieure (oldspeed>vit) ou supérieur (oldspeed<vit) à l'ancienne vitesse pour savoir si on doit accélérer ou décélérer.
+On créer ensuite la pente dans des boucle for, on passe d'une vitesse à l'autre par pas de 1 toutes les 20ms (HAL_Delay(20)).
+
+Une fois la nouvelle vitesse atteinte on calcul et on affiche le rapport cyclique ainsi que la vitesse (par vitesse on entends la valeur entre 0 et 1024).
+
 ## Commande en boucle ouverte, mesure de vitesse et de courant
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8a1aab00-e521-44c9-9e21-a9cc8c186ca8)
