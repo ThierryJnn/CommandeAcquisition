@@ -7,6 +7,7 @@ Le but de ce projet est de gérer la commande d'une MCC grâce à 4 transistors 
 
 Dans un premier temps nous allons paramétrer la liaison UART de la carte STM32-G474RE.
 La liaison UART devra avoir comme fonctionnalité :
+
 -   La présence d'un écho pour tous les caractères pour voir ce que l'on envoie.
 -   Lorsque le caractère "ENTER" est détecté (voir sa valeur dans la table ASCII), traiter la chaine de caractères en la comparant aux commandes connues, pour le moment nous resterons à un nombre limitée de commandes :
 -   help : qui affiche toutes les commandes disponibles,
@@ -155,4 +156,6 @@ Les courants à mesurer sont les Imes que l'on peu trouver sur les schéma du pr
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/00fd2797-bf2c-4fcc-af2c-7c482bf25034)
 
 <img width="806" alt="Asserv" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/a4380981-49d2-4448-8223-18cd40a65461">
+
+<img width="806" alt="Asserv" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/bd0f7c0d-4bd2-4409-899f-544039923083">
 
