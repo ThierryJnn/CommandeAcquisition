@@ -135,6 +135,15 @@ A noté que nous avons rencontré beaucoup de problèmes avec la commande du mot
 
 ## Commande en boucle ouverte, mesure de vitesse et de courant
 
+Les mesure de vitesse se font via un encodeur sur l'axe de l'arbre moteur
+
+<img width="360" alt="rouecodeuse" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/835d9c75-9d82-4419-b471-dba07c007625">
+
+![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/571faccc-8024-411a-aab2-e91e58932a7f)
+
+
+Plus la période entre les deux fronts montant est faible plus la roue (donc l'axe moteur) tourne vite 
+
 Les courants à mesurer sont les Imes
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8a1aab00-e521-44c9-9e21-a9cc8c186ca8)
