@@ -42,7 +42,6 @@ PinInfo pins[] = {
  * @brief Affiche les informations sur la configuration des broches.
  * @retval None
  * @param None
- * @note Toutes les configurations de pin ne sont pas ajoutées mais le principe reste le même.
  */
 void pinout() {
 	HAL_UART_Transmit(&huart2, "Pinout:\r\n", strlen("Pinout:\r\n"), HAL_MAX_DELAY);

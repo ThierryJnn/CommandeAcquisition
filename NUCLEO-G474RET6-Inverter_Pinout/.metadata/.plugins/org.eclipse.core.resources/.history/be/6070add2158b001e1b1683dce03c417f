@@ -24,7 +24,7 @@ char vitesse[30]; // Chaîne pour stocker le message de vitesse
 /**
  * @brief Mesure la vitesse du moteur en tours par minute (tpm).
  * @param None
- * @retval None
+ * @retval void
  * @note Cette fonction utilise le compteur du TIM3 pour mesurer la période
  * entre deux impulsions et calcule la fréquence pour obtenir la vitesse en tpm.
  */

@@ -26,9 +26,7 @@ int vit=512; // Variable de vitesse initiée a sa valeur initiale de 512 (rappor
  * @brief Contrôle la vitesse du moteur.
  * @retval None
  * @param int digit
- * @note La valeur de la vitesse à régler est entre 0 et 1024,
- *  0 pour un rapport cyclique de 0%, 512 pour un rapport cyclique de 50% et
- *  1024 pour un rapport cyclique de 100%. Le moteur est à l'arret pour un rapport cylique de 50%.
+ * @note La valeur de la vitesse à régler est entre 0 et 1024, 0 pour un rapport cyclique de 0%, 512 pour un rapport cyclique de 50% et 1024 pour un rapport cyclique de 100%.
  */
 void speed(int digit) {
 	int oldspeed=vit; // Stocke l'ancienne valeur de la vitesse

@@ -23,10 +23,6 @@ extern int Power; // Variable externe indiquant l'état de la puissance du moteu
 
 /**
  * @brief Désactive le moteur en arrêtant la génération des PWM.
- * @retval None
- * @param None
- * @note Si le moteur est déja éteint alors on affiche seulement un message l'indiquant.
- * Le moteur est éteint par la l'arrêt de generation des PWM.
  */
 void stopMotor() {
 	// Desactivez l'étage de puissance du moteur (code pour desactiver le moteur)

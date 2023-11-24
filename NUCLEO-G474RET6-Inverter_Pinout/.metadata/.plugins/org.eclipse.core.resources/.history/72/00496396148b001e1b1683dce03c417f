@@ -42,7 +42,7 @@ void processCommand(char* command) {
 		HAL_UART_Transmit(&huart2, " - speed xxxx : Regle la vitesse du moteur\r\n", strlen(" - speed xxxx : Regle la vitesse du moteur\r\n"), HAL_MAX_DELAY);
 		HAL_UART_Transmit(&huart2, "	-- xxxx est compris entre 0 et 1024, a 512 le moteur est a l'arret\r\n", strlen("	-- xxxx est compris entre 0 et 1024, a 512 le moteur est a l'arret\r\n"), HAL_MAX_DELAY);
 		// Ajoutez d'autres commandes et leurs descriptions ici
-		return;
+		return 0;
 	}
 	// Vérifie si la commande est "pinout"
 	if (strcmp(command, "pinout") == 0) {
@@ -72,5 +72,5 @@ void processCommand(char* command) {
 	else {
 		HAL_UART_Transmit(&huart2, "Commande inconnue\r\n", strlen("Commande inconnue\r\n"), HAL_MAX_DELAY);
 	}
-	// Ajouter d'autres conditions pour d'autres commandes si nécessaire
+	// Ajoutez d'autres conditions pour d'autres commandes si nécessaire
 }

@@ -22,10 +22,6 @@ extern int Power; // Variable externe indiquant l'état de la puissance du moteu
 
 /**
  * @brief Active le moteur en démarrant la génération des PWM.
- * @retval None
- * @param None
- * @note Si le moteur est déja allumé alors on affiche seulement un message l'indiquant.
- * Le moteur est allumé par la génération des PWM.
  */
 void startMotor() {
 	// Activez l'étage de puissance du moteur (code pour activer le moteur)

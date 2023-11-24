@@ -26,9 +26,8 @@ int Power=0; // Initie la variable globale "Power" à 0 au démarrage du program
 
 /**
  * @brief Traite la commande reçue sur l'UART.
- * @retval None
- * @param char* command
- * @note Toutes les commandes sont définies dans leurs propres fonctions excepté pour help.
+ *
+ * @param command La commande à traiter.
  */
 void processCommand(char* command) {
 	// Vérifie si la commande est "help"
@@ -42,7 +41,7 @@ void processCommand(char* command) {
 		HAL_UART_Transmit(&huart2, " - speed xxxx : Regle la vitesse du moteur\r\n", strlen(" - speed xxxx : Regle la vitesse du moteur\r\n"), HAL_MAX_DELAY);
 		HAL_UART_Transmit(&huart2, "	-- xxxx est compris entre 0 et 1024, a 512 le moteur est a l'arret\r\n", strlen("	-- xxxx est compris entre 0 et 1024, a 512 le moteur est a l'arret\r\n"), HAL_MAX_DELAY);
 		// Ajoutez d'autres commandes et leurs descriptions ici
-		return;
+		return 0;
 	}
 	// Vérifie si la commande est "pinout"
 	if (strcmp(command, "pinout") == 0) {
@@ -66,11 +65,11 @@ void processCommand(char* command) {
 		if (sscanf(command + 5, "%d", &digit) == 1) {
 			speed(digit); // Appeler la fonction speed avec les 4 chiffres en argument
 		} else {
-			HAL_UART_Transmit(&huart2, "Format incorrect. Utilisation : speed <chiffre>\r\n", strlen("Format incorrect. Utilisation : speed <chiffre>\r\n"), HAL_MAX_DELAY);
+			HAL_UART_Transmit(&huart2, "Format incorrect. Utilisation : speed <chiffre1><chiffre2><chiffre3><chiffre4>\r\n", strlen("Format incorrect. Utilisation : speed <chiffre1><chiffre2><chiffre3><chiffre4>\r\n"), HAL_MAX_DELAY);
 		}
 	}
 	else {
 		HAL_UART_Transmit(&huart2, "Commande inconnue\r\n", strlen("Commande inconnue\r\n"), HAL_MAX_DELAY);
 	}
-	// Ajouter d'autres conditions pour d'autres commandes si nécessaire
+	// Ajoutez d'autres conditions pour d'autres commandes si nécessaire
 }
