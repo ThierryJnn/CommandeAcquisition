@@ -152,6 +152,8 @@ Avec le temps qui restait nous avons tenter de mettre en place un code pour acqu
 Le principe est de compter le nombre d'incréments de la roue sur une petite periode (10ms).
 On multiplie alors cette valeur par une constante prenant en compte l'espacement des incrément et on obtient théoriquement la vitesse de rotation.
 Nous n'avons pas pu tester cette fonction, malgré avoir changé de moteur et avoir mesurer les bons courants sur la carte, l'encodeur affiche une vitesse constante sur l'oscilloscope alors que le moteur accelère. La valeur affiché par la fonction est nulle également.
+<img width="542" alt="DMA" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/50b18e87-d1c6-47ca-9369-0949c9a75073">
+<img width="430" alt="ADC" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/1c6cd837-1d2d-4286-8ced-0d7d0b892a7e">
 
 Les courants à mesurer sont les Imes que l'on peu trouver sur les schéma du projet Kicad de la carte.
 
