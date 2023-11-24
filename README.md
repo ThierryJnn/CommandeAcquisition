@@ -128,6 +128,7 @@ Résultats: Le moteur tourne bien dans les deux sens et se limite à 1024. Il pa
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/baaaf4a9-fdca-4b6d-b91f-4754d1c50be3)
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/29b7b730-d135-4559-bd6e-2ec97c7ba3ff)
 
+A noté que nous avons rencontré beaucoup de problèmes avec la commande du moteur, pour une raison que nous n'arrivons pas à expliquer le moteur ne voulait pas tourner dans les deux sens. 
 
 
 ## Commande en boucle ouverte, mesure de vitesse et de courant
