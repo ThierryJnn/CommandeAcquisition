@@ -139,10 +139,12 @@ Les mesure de vitesse se font via un encodeur sur l'axe de l'arbre moteur
 
 <img width="360" alt="rouecodeuse" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/835d9c75-9d82-4419-b471-dba07c007625">
 
+Plus la période entre les deux fronts montant est faible plus la roue (donc l'axe moteur) tourne vite 
+
+Avec le temps qui restait nous avons tenter de mettre en place un code pour acquérir la mesure de vitesse de l'encoder:
+
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/571faccc-8024-411a-aab2-e91e58932a7f)
 
-
-Plus la période entre les deux fronts montant est faible plus la roue (donc l'axe moteur) tourne vite 
 
 Les courants à mesurer sont les Imes
 
