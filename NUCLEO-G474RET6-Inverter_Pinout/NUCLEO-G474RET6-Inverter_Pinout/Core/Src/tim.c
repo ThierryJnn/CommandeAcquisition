@@ -26,6 +26,7 @@
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
+DMA_HandleTypeDef hdma_tim3_up;
 
 /* TIM1 init function */
 void MX_TIM1_Init(void)
@@ -124,7 +125,6 @@ void MX_TIM3_Init(void)
 
   TIM_Encoder_InitTypeDef sConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIMEx_EncoderIndexConfigTypeDef sEncoderIndexConfig = {0};
 
   /* USER CODE BEGIN TIM3_Init 1 */
 
@@ -154,17 +154,6 @@ void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
-  sEncoderIndexConfig.Polarity = TIM_ENCODERINDEX_POLARITY_NONINVERTED;
-  sEncoderIndexConfig.Prescaler = TIM_ENCODERINDEX_PRESCALER_DIV1;
-  sEncoderIndexConfig.Filter = 0;
-  sEncoderIndexConfig.FirstIndexEnable = DISABLE;
-  sEncoderIndexConfig.Position = TIM_ENCODERINDEX_POSITION_00;
-  sEncoderIndexConfig.Direction = TIM_ENCODERINDEX_DIRECTION_UP_DOWN;
-  if (HAL_TIMEx_ConfigEncoderIndex(&htim3, &sEncoderIndexConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  HAL_TIMEx_RemapConfig(&htim3, TIM_TIM3_ETR_COMP1);
   /* USER CODE BEGIN TIM3_Init 2 */
 
   /* USER CODE END TIM3_Init 2 */
@@ -230,6 +219,27 @@ void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* tim_encoderHandle)
     GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+    /* TIM3 DMA Init */
+    /* TIM3_UP Init */
+    hdma_tim3_up.Instance = DMA1_Channel2;
+    hdma_tim3_up.Init.Request = DMA_REQUEST_TIM3_UP;
+    hdma_tim3_up.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_tim3_up.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_tim3_up.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_tim3_up.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+    hdma_tim3_up.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_tim3_up.Init.Mode = DMA_NORMAL;
+    hdma_tim3_up.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_tim3_up) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(tim_encoderHandle,hdma[TIM_DMA_ID_UPDATE],hdma_tim3_up);
+
+    /* TIM3 interrupt Init */
+    HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(TIM3_IRQn);
   /* USER CODE BEGIN TIM3_MspInit 1 */
 
   /* USER CODE END TIM3_MspInit 1 */
@@ -325,6 +335,11 @@ void HAL_TIM_Encoder_MspDeInit(TIM_HandleTypeDef* tim_encoderHandle)
 
     HAL_GPIO_DeInit(GPIOC, GPIO_PIN_8);
 
+    /* TIM3 DMA DeInit */
+    HAL_DMA_DeInit(tim_encoderHandle->hdma[TIM_DMA_ID_UPDATE]);
+
+    /* TIM3 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(TIM3_IRQn);
   /* USER CODE BEGIN TIM3_MspDeInit 1 */
 
   /* USER CODE END TIM3_MspDeInit 1 */

@@ -2373,3 +2373,33 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-11-20 08:12:26.124
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-11-24 10:18:48.220 -----------------------------------------------
+eclipse.buildId=Version 1.13.1
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-11-24 10:19:13.738
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-11-24 10:19:13.747
+!MESSAGE Log4j2 initialized with config file C:\Users\thier\OneDrive\Bureau\.git\NUCLEO-G474RET6-Inverter_Pinout\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-11-24 10:19:23.330
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-11-24 16:01:28.438 -----------------------------------------------
+eclipse.buildId=Version 1.13.1
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-11-24 16:01:42.012
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-11-24 16:01:42.013
+!MESSAGE Log4j2 initialized with config file C:\Users\thier\OneDrive\Bureau\.git\NUCLEO-G474RET6-Inverter_Pinout\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-11-24 16:01:53.536
+!MESSAGE Started RMI Server, listening on port 41337

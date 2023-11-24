@@ -1,76 +1,174 @@
-11:49:09 **** Incremental Build of configuration Debug for project NUCLEO-G474RET6-Inverter_Pinout ****
+16:19:37 **** Incremental Build of configuration Debug for project NUCLEO-G474RET6-Inverter_Pinout ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:106:46: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  106 |   HAL_UART_Transmit(&huart2, started, strlen(started), HAL_MAX_DELAY);
-      |                                              ^~~~~~~
-      |                                              |
-      |                                              const uint8_t * {aka const unsigned char *}
-In file included from ../Core/Src/main.c:29:
-C:\ST\STM32CubeIDE_1.13.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.0.202305231506\tools\bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-   41 | size_t   strlen (const char *);
-      |                  ^~~~~~~~~~~~
-../Core/Src/main.c:107:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
-  107 |   HAL_UART_Receive_IT(&huart2, uartRxBuffer, 1);
-      |                                ^~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/processCommand.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/processCommand.d" -MT"Core/Src/processCommand.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/processCommand.o"
+../Core/Src/processCommand.c: In function 'processCommand':
+../Core/Src/processCommand.c:23:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   23 |     HAL_UART_Transmit(&huart2, "Commandes disponibles :\r\n", strlen("Commandes disponibles :\r\n"), HAL_MAX_DELAY);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                |
       |                                char *
 In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
                  from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1614:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
- 1614 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
-../Core/Src/main.c:117:54: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
-  117 |                           HAL_UART_Transmit(&huart2, "\r\n", 2, HAL_MAX_DELAY);
-      |                                                      ^~~~~~
-      |                                                      |
-      |                                                      char *
-In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
-                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
  1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                ~~~~~~~~~~~~~~~^~~~~
-../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
-../Core/Src/main.c:183:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
-  183 |         HAL_UART_Transmit(&huart2, uartRxBuffer, 1, 100);
-      |                                    ^~~~~~~~~~~~
-      |                                    |
-      |                                    char *
+../Core/Src/processCommand.c:24:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   24 |     HAL_UART_Transmit(&huart2, " - help : Affiche ce message d'aide\r\n", strlen(" - help : Affiche ce message d'aide\r\n"), HAL_MAX_DELAY);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                char *
 In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
                  from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
  1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                ~~~~~~~~~~~~~~~^~~~~
-../Core/Src/main.c:184:38: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
-  184 |         HAL_UART_Receive_IT(&huart2, uartRxBuffer, 1);
-      |                                      ^~~~~~~~~~~~
+../Core/Src/processCommand.c:25:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   25 |     HAL_UART_Transmit(&huart2, " - pinout : Affiche la configuration des pins\r\n", strlen(" - pinout : Affiche la configuration des pins\r\n"), HAL_MAX_DELAY);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/processCommand.c:26:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   26 |     HAL_UART_Transmit(&huart2, " - start : Demarre le moteur\r\n", strlen(" - start : Demarre le moteur\r\n"), HAL_MAX_DELAY);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/processCommand.c:27:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   27 |     HAL_UART_Transmit(&huart2, " - stop : Arrete le moteur\r\n", strlen(" - start : Arrete le moteur\r\n"), HAL_MAX_DELAY);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/processCommand.c:28:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   28 |     HAL_UART_Transmit(&huart2, " - speed xxxx : Regle la vitesse du moteur\r\n", strlen(" - speed xxxx : Regle la vitesse du moteur\r\n"), HAL_MAX_DELAY);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/processCommand.c:29:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   29 |     HAL_UART_Transmit(&huart2, "        -- xxxx est compris entre 0 et 1024, a 512 le moteur est a l'arret\r\n", strlen("       -- xxxx est compris entre 0 et 1024, a 512 le moteur est a l'arret\r\n"), HAL_MAX_DELAY);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/processCommand.c:31:12: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   31 |     return 0;
+      |            ^
+../Core/Src/processCommand.c:20:6: note: declared here
+   20 | void processCommand(char* command) {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/processCommand.c:35:18: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   35 |           return 0;
+      |                  ^
+../Core/Src/processCommand.c:20:6: note: declared here
+   20 | void processCommand(char* command) {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/processCommand.c:39:18: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   39 |           return 0;
+      |                  ^
+../Core/Src/processCommand.c:20:6: note: declared here
+   20 | void processCommand(char* command) {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/processCommand.c:43:18: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   43 |           return 0;
+      |                  ^
+../Core/Src/processCommand.c:20:6: note: declared here
+   20 | void processCommand(char* command) {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/processCommand.c:48:19: warning: implicit declaration of function 'sscanf' [-Wimplicit-function-declaration]
+   48 |               if (sscanf(command + 5, "%d", &digit) == 1) {
+      |                   ^~~~~~
+../Core/Src/processCommand.c:17:1: note: include '<stdio.h>' or provide a declaration of 'sscanf'
+   16 | #include "stopMotor.h"
+  +++ |+#include <stdio.h>
+   17 | 
+../Core/Src/processCommand.c:48:19: warning: incompatible implicit declaration of built-in function 'sscanf' [-Wbuiltin-declaration-mismatch]
+   48 |               if (sscanf(command + 5, "%d", &digit) == 1) {
+      |                   ^~~~~~
+../Core/Src/processCommand.c:48:19: note: include '<stdio.h>' or provide a declaration of 'sscanf'
+../Core/Src/processCommand.c:49:19: warning: implicit declaration of function 'speed'; did you mean 'Speed'? [-Wimplicit-function-declaration]
+   49 |                   speed(digit);
+      |                   ^~~~~
+      |                   Speed
+../Core/Src/processCommand.c:51:46: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   51 |                   HAL_UART_Transmit(&huart2, "Format incorrect. Utilisation : speed <chiffre1><chiffre2><chiffre3><chiffre4>\r\n", strlen("Format incorrect. Utilisation : speed <chiffre1><chiffre2><chiffre3><chiffre4>\r\n"), HAL_MAX_DELAY);
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                              |
+      |                                              char *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/processCommand.c:55:38: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   55 |           HAL_UART_Transmit(&huart2, "Command not found\r\n", strlen("Command not found\r\n"), HAL_MAX_DELAY);
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~
       |                                      |
       |                                      char *
 In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
                  from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1614:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
- 1614 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
+                 from ../Core/Inc/adc.h:29,
+                 from ../Core/Src/processCommand.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1611:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1611 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
 arm-none-eabi-gcc -o "NUCLEO-G474RET6-Inverter_Pinout.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\thier\OneDrive\Bureau\.git\NUCLEO-G474RET6-Inverter_Pinout\NUCLEO-G474RET6-Inverter_Pinout\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NUCLEO-G474RET6-Inverter_Pinout.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: NUCLEO-G474RET6-Inverter_Pinout.elf
  
 arm-none-eabi-size   NUCLEO-G474RET6-Inverter_Pinout.elf 
 arm-none-eabi-objdump -h -S  NUCLEO-G474RET6-Inverter_Pinout.elf  > "NUCLEO-G474RET6-Inverter_Pinout.list"
    text	   data	    bss	    dec	    hex	filename
-  54876	    600	   2824	  58300	   e3bc	NUCLEO-G474RET6-Inverter_Pinout.elf
+  55204	    600	   2824	  58628	   e504	NUCLEO-G474RET6-Inverter_Pinout.elf
 Finished building: default.size.stdout
  
 Finished building: NUCLEO-G474RET6-Inverter_Pinout.list
  
 
-11:49:10 Build Finished. 0 errors, 5 warnings. (took 1s.4ms)
+16:19:42 Build Failed. 1 errors, 16 warnings. (took 4s.915ms)
 

@@ -60,10 +60,10 @@ void speed(int digit) {
 
 	// Calcule et affiche le rapport cyclique
 	int rapcycl= vit*100/1024;
-	mesureSpeed(); // Mesure et affichage la vitesse actuelle mesurée par le codeur
-	snprintf(message, sizeof(message), "Speed: %d \r\n", vit); // Formatte le message de vitesse calculé par le programme
-	HAL_UART_Transmit(&huart2, message, strlen(message), HAL_MAX_DELAY); // Transmet le message de vitesse calculée via l'UART2
-	snprintf(message, sizeof(message), "Rapport cyclique: %d \r\n", rapcycl); // Formatte le message de rapport cyclique calculé par le programme
-	HAL_UART_Transmit(&huart2, message, strlen(message), HAL_MAX_DELAY); // Transmet le message calculé par le programme via l'UART2
+	mesureSpeed(); // Mesure la vitesse actuelle
+	snprintf(message, sizeof(message), "Speed: %d \r\n", vit);
+	HAL_UART_Transmit(&huart2, message, strlen(message), HAL_MAX_DELAY);
+	snprintf(message, sizeof(message), "Rapport cyclique: %d \r\n", rapcycl);
+	HAL_UART_Transmit(&huart2, message, strlen(message), HAL_MAX_DELAY);
 
 }

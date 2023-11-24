@@ -11,18 +11,20 @@
 #include "gpio.h"
 #include "string.h"
 
-uint32_t old_speed, new_speed, freq;
-char vitesse[30];
+uint32_t count1, count2, freq; // Variables de mesure de la vitesse
+char vitesse[30]; // Chaîne pour stocker le message de vitesse
 
+/**
+ * @brief Mesure la vitesse du moteur en tours par minute (tpm).
+ *
+ * @note Cette fonction utilise le compteur du TIM3 pour mesurer la période
+ * entre deux impulsions et calcule la fréquence pour obtenir la vitesse en tpm.
+ */
 void mesureSpeed(void){
-	int i=0;
-	for(i=0;i<30;i++){
-		old_speed=__HAL_TIM_GET_COUNTER(&htim3);
-		HAL_Delay(10);
-		new_speed=__HAL_TIM_GET_COUNTER(&htim3);
-		freq=(new_speed-old_speed)*735/495;
-		sprintf(vitesse, "Vitesse : %d tpm \r\n", freq);
-		HAL_UART_Transmit(&huart2, vitesse, strlen(vitesse), HAL_MAX_DELAY);
-	}
-
+	count1 = __HAL_TIM_GET_COUNTER(&htim3); // Obtient la valeur du compteur avant l'attente
+	HAL_Delay(10); // Attend 10 millisecondes
+	count2 = __HAL_TIM_GET_COUNTER(&htim3); // Obtient la valeur du compteur après l'attente
+	freq = (count2-count1)*735/495; // Calcule la fréquence (vitesse en tpm) en fonction du paramètrage du timer 3 et du codeur.
+	sprintf(vitesse, "Vitesse : %d tpm \r\n", freq); // Formatte le message de vitesse
+	HAL_UART_Transmit(&huart2, vitesse, strlen(vitesse), HAL_MAX_DELAY); // Transmet le message via l'UART2
 }

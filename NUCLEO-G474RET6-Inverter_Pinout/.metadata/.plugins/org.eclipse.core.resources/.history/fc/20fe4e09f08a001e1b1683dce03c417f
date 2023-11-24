@@ -36,4 +36,5 @@ void stopMotor() {
 		// Si le moteur est déjà éteint, affichez un message correspondant
 		HAL_UART_Transmit(&huart2, "Moteur déjà éteint\r\n", strlen("Moteur déjà éteint\r\n"), HAL_MAX_DELAY);
 	}
+	HAL_UART_Transmit(&huart2, "Moteur déjà éteint\r\n", strlen("Moteur déjà éteint\r\n"), HAL_MAX_DELAY);
 }
