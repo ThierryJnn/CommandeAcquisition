@@ -89,7 +89,7 @@ Cahier des charges :
 
 Voici comment configurer les PWMs associées au TIM1 dans la section Timers du fichier .ioc .
 
-Il est important de régler le dead time (ou temps mort) à 44 ms, une valeur que l'on a récupéré sur la documentation des transistors utilisés sur le hacheur du PCB.
+Il est important de régler le dead time (ou temps mort) à 44 ns, une valeur que l'on a récupéré sur la documentation des transistors utilisés sur le hacheur du PCB.
 Le temps mort est la période durant laquelle le transistor passe d'un état à l'autre, elle doit être prise en compte pour éviter une désynchronisation entre le programme et l'electronique du PCB ce qui pourrait l'endommager et empécher son bon fonctionnement.
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8f852da5-4d97-48bf-bb10-13151deeb2ad)
@@ -149,8 +149,10 @@ Le principe est de compter le nombre d'incréments de la roue sur une petite per
 On multiplie alors cette valeur par une constante prenant en compte l'espacement des incrément et on obtient théoriquement la vitesse de rotation.
 Nous n'avons pas pu tester cette fonction, malgré avoir changé de moteur et avoir mesurer les bons courants sur la carte, l'encodeur affiche une vitesse constante sur l'oscilloscope alors que le moteur accelère. La valeur affiché par la fonction est nulle également.
 
-Les courants à mesurer sont les Imes
+Les courants à mesurer sont les Imes que l'on peu trouver sur les schéma du projet Kicad de la carte.
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8a1aab00-e521-44c9-9e21-a9cc8c186ca8)
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/00fd2797-bf2c-4fcc-af2c-7c482bf25034)
+
+<img width="806" alt="Asserv" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/a4380981-49d2-4448-8223-18cd40a65461">
 
