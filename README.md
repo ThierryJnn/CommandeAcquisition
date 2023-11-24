@@ -157,5 +157,3 @@ Les courants à mesurer sont les Imes que l'on peu trouver sur les schéma du pr
 
 <img width="806" alt="Asserv" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/a4380981-49d2-4448-8223-18cd40a65461">
 
-<img width="806" alt="Asserv" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/bd0f7c0d-4bd2-4409-899f-544039923083">
-
