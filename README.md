@@ -124,12 +124,15 @@ On créer ensuite la pente dans des boucle for, on passe d'une vitesse à l'autr
 
 Une fois la nouvelle vitesse atteinte on calcul et on affiche le rapport cyclique ainsi que la vitesse (par vitesse on entends la valeur entre 0 et 1024).
 
-Résultats: Le moteur tourne bien dans les deux sens et se limite à 1024. Il passe d'une vitesse à l'autre avec une faible pente.
+Résultats: Le moteur tourne bien dans les deux sens et se limite à 1024. Il passe d'une vitesse à l'autre avec une pente relativement faible.
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/baaaf4a9-fdca-4b6d-b91f-4754d1c50be3)
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/29b7b730-d135-4559-bd6e-2ec97c7ba3ff)
 
 
+
 ## Commande en boucle ouverte, mesure de vitesse et de courant
+
+Les courants à mesurer sont les Imes
 
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8a1aab00-e521-44c9-9e21-a9cc8c186ca8)
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/00fd2797-bf2c-4fcc-af2c-7c482bf25034)
