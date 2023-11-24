@@ -144,6 +144,9 @@ Plus la période entre les deux fronts montant est faible plus la roue (donc l'a
 
 Avec le temps qui restait nous avons tenter de mettre en place un code pour acquérir la mesure de vitesse de l'encoder:
 
+<img width="213" alt="encoder mode" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/7202251a-b2c7-4eff-b24b-29717ff7af42">
+<img width="222" alt="encoder mode1" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/5aab81c9-ca46-44e9-a58c-c5f7539dc2ec">
+
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/571faccc-8024-411a-aab2-e91e58932a7f)
 
 Le principe est de compter le nombre d'incréments de la roue sur une petite periode (10ms).
