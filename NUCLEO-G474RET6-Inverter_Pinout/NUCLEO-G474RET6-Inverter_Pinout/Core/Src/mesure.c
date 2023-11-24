@@ -5,6 +5,13 @@
  *      Author: thier
  */
 
+/**
+  ******************************************************************************
+  * @file    mesure.c
+  * @brief   This file provides the code for measuring the speed of the motor by the encoder.
+  ******************************************************************************
+  */
+
 #include "adc.h"
 #include "tim.h"
 #include "usart.h"

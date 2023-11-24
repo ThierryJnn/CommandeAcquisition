@@ -5,6 +5,13 @@
  *      Author: thier
  */
 
+/**
+  ******************************************************************************
+  * @file    pinout.c
+  * @brief   This file provides the code for displaying the pinout configuration of the stm32 board.
+  ******************************************************************************
+  */
+
 #include "adc.h"
 #include "tim.h"
 #include "usart.h"

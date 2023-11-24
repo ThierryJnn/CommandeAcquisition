@@ -5,6 +5,13 @@
  *      Author: thier
  */
 
+/**
+  ******************************************************************************
+  * @file    processCommand.c
+  * @brief   This file provides the code for processing the shell inputs.
+  ******************************************************************************
+  */
+
 #include "adc.h"
 #include "tim.h"
 #include "speed.h"
@@ -39,17 +46,17 @@ void processCommand(char* command) {
 	// Vérifie si la commande est "pinout"
 	if (strcmp(command, "pinout") == 0) {
 		pinout(); // Appeler la fonction pinout
-		return 0;
+		return;
 	}
 	// Vérifie si la commande est "start"
 	if (strcmp(command, "start") == 0) {
 		startMotor(); // Appeler la fonction startMotor
-		return 0;
+		return;
 	}
 	// Vérifie si la commande est "stop"
 	if (strcmp(command, "stop") == 0) {
 		stopMotor(); // Appeler la fonction stopMotor
-		return 0;
+		return;
 	}
 	// Vérifie si la commande commence par "speed"
 	if (strncmp(command, "speed", 5) == 0) {

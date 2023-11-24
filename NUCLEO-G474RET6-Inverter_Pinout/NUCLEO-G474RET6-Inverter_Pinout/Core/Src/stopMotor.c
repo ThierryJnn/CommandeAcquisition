@@ -5,6 +5,13 @@
  *      Author: thier
  */
 
+/**
+  ******************************************************************************
+  * @file    stopMotor.c
+  * @brief   This file provides the code for turning off the motor.
+  ******************************************************************************
+  */
+
 
 #include "adc.h"
 #include "tim.h"

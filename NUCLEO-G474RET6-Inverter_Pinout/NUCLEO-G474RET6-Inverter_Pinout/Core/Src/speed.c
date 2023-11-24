@@ -5,6 +5,13 @@
  *      Author: thier
  */
 
+/**
+  ******************************************************************************
+  * @file    speed.c
+  * @brief   This file provides the code for managing the rotational speed and direction of the motor.
+  ******************************************************************************
+  */
+
 #include "adc.h"
 #include "tim.h"
 #include "usart.h"

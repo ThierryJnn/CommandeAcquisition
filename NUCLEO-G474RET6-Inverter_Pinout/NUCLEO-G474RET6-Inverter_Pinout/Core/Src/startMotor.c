@@ -5,6 +5,13 @@
  *      Author: thier
  */
 
+/**
+  ******************************************************************************
+  * @file    startMotor.c
+  * @brief   This file provides the code for turning on the motor.
+  ******************************************************************************
+  */
+
 #include "adc.h"
 #include "tim.h"
 #include "usart.h"
