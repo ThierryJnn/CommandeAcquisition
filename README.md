@@ -163,7 +163,7 @@ Les courants à mesurer sont les Imes que l'on peu trouver sur les schéma du pr
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/8a1aab00-e521-44c9-9e21-a9cc8c186ca8)
 ![image](https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/00fd2797-bf2c-4fcc-af2c-7c482bf25034)
 
-Enfin si nous avions eu le temps, nous aurions pu aborder l'asservissement du moteur avec les correcteurs PI que nous avons vu en TD. La fonction de transfert en devrait ressembler à quelque chose comme ça pour un asservissement en vitesse:
+Enfin si nous avions eu le temps, nous aurions pu aborder l'asservissement du moteur avec les correcteurs PI que nous avons vu en TD. La fonction de transfert  devrait ressembler à quelque chose comme ça pour un asservissement en vitesse:
 
 <img width="806" alt="Asserv" src="https://github.com/ThierryJnn/CommandeAcquisition/assets/144686292/a4380981-49d2-4448-8223-18cd40a65461">
 
