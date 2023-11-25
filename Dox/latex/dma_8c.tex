@@ -1,0 +1,62 @@
+\doxysection{Référence du fichier C\+:/\+Users/thier/\+One\+Drive/\+Bureau/.git/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/dma.c}
+\hypertarget{dma_8c}{}\label{dma_8c}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/dma.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/dma.c}}
+
+
+This file provides code for the configuration of all the requested memory to memory DMA transfers.  
+
+
+{\ttfamily \#include "{}dma.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{dma_8c_a323249dac769f9855c10b4ec9446b707}{MX\+\_\+\+DMA\+\_\+\+Init}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides code for the configuration of all the requested memory to memory DMA transfers. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+Définition dans le fichier \mbox{\hyperlink{dma_8c_source}{dma.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{dma_8c_a323249dac769f9855c10b4ec9446b707}\label{dma_8c_a323249dac769f9855c10b4ec9446b707} 
+\index{dma.c@{dma.c}!MX\_DMA\_Init@{MX\_DMA\_Init}}
+\index{MX\_DMA\_Init@{MX\_DMA\_Init}!dma.c@{dma.c}}
+\doxysubsubsection{\texorpdfstring{MX\_DMA\_Init()}{MX\_DMA\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+DMA\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Enable DMA controller clock 
+
+Définition à la ligne \mbox{\hyperlink{dma_8c_source_l00039}{39}} du fichier \mbox{\hyperlink{dma_8c_source}{dma.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{/*\ DMA\ controller\ clock\ enable\ */}}
+\DoxyCodeLine{00043\ \ \ \_\_HAL\_RCC\_DMAMUX1\_CLK\_ENABLE();}
+\DoxyCodeLine{00044\ \ \ \_\_HAL\_RCC\_DMA1\_CLK\_ENABLE();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{/*\ DMA\ interrupt\ init\ */}}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{/*\ DMA1\_Channel1\_IRQn\ interrupt\ configuration\ */}}
+\DoxyCodeLine{00048\ \ \ HAL\_NVIC\_SetPriority(DMA1\_Channel1\_IRQn,\ 0,\ 0);}
+\DoxyCodeLine{00049\ \ \ HAL\_NVIC\_EnableIRQ(DMA1\_Channel1\_IRQn);}
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{/*\ DMA1\_Channel2\_IRQn\ interrupt\ configuration\ */}}
+\DoxyCodeLine{00051\ \ \ HAL\_NVIC\_SetPriority(DMA1\_Channel2\_IRQn,\ 0,\ 0);}
+\DoxyCodeLine{00052\ \ \ HAL\_NVIC\_EnableIRQ(DMA1\_Channel2\_IRQn);}
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{/*\ DMAMUX\_OVR\_IRQn\ interrupt\ configuration\ */}}
+\DoxyCodeLine{00054\ \ \ HAL\_NVIC\_SetPriority(DMAMUX\_OVR\_IRQn,\ 0,\ 0);}
+\DoxyCodeLine{00055\ \ \ HAL\_NVIC\_EnableIRQ(DMAMUX\_OVR\_IRQn);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

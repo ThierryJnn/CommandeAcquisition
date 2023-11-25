@@ -1,0 +1,122 @@
+\doxysection{Référence du fichier C\+:/\+Users/thier/\+One\+Drive/\+Bureau/.git/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/mesure.c}
+\hypertarget{mesure_8c}{}\label{mesure_8c}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mesure.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mesure.c}}
+
+
+This file provides the code for measuring the speed of the motor by the encoder.  
+
+
+{\ttfamily \#include "{}adc.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include "{}usart.\+h"{}}\newline
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+{\ttfamily \#include "{}string.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mesure_8c_aefe3e9a9f741eac596850c28b83580f3}{mesure\+Speed}} (void)
+\begin{DoxyCompactList}\small\item\em Mesure la vitesse du moteur en tours par minute (tpm). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}{count1}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60}{count2}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b}{freq}}
+\item 
+char \mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}} \mbox{[}30\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides the code for measuring the speed of the motor by the encoder. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{mesure_8c_source}{mesure.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{mesure_8c_aefe3e9a9f741eac596850c28b83580f3}\label{mesure_8c_aefe3e9a9f741eac596850c28b83580f3} 
+\index{mesure.c@{mesure.c}!mesureSpeed@{mesureSpeed}}
+\index{mesureSpeed@{mesureSpeed}!mesure.c@{mesure.c}}
+\doxysubsubsection{\texorpdfstring{mesureSpeed()}{mesureSpeed()}}
+{\footnotesize\ttfamily void mesure\+Speed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Mesure la vitesse du moteur en tours par minute (tpm). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valeurs retournées}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+Cette fonction utilise le compteur du TIM3 pour mesurer la période entre deux impulsions et calcule la fréquence pour obtenir la vitesse en tpm. 
+\end{DoxyNote}
+
+
+Définition à la ligne \mbox{\hyperlink{mesure_8c_source_l00031}{31}} du fichier \mbox{\hyperlink{mesure_8c_source}{mesure.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}{count1}}\ =\ \_\_HAL\_TIM\_GET\_COUNTER(\&\mbox{\hyperlink{stm32g4xx__it_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}});\ \textcolor{comment}{//\ Obtient\ la\ valeur\ du\ compteur\ avant\ l'attente}}
+\DoxyCodeLine{00033\ \ \ \ \ HAL\_Delay(10);\ \textcolor{comment}{//\ Attend\ 10\ millisecondes}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60}{count2}}\ =\ \_\_HAL\_TIM\_GET\_COUNTER(\&\mbox{\hyperlink{stm32g4xx__it_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}});\ \textcolor{comment}{//\ Obtient\ la\ valeur\ du\ compteur\ après\ l'attente}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b}{freq}}\ =\ (\mbox{\hyperlink{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60}{count2}}-\/\mbox{\hyperlink{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}{count1}})*735/495;\ \textcolor{comment}{//\ Calcule\ la\ fréquence\ (vitesse\ en\ tpm)\ en\ fonction\ du\ paramètrage\ du\ timer\ 3\ et\ du\ codeur.}}
+\DoxyCodeLine{00036\ \ \ \ \ sprintf(\mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}},\ \textcolor{stringliteral}{"{}Vitesse\ :\ \%d\ tpm\ \(\backslash\)r\(\backslash\)n"{}},\ \mbox{\hyperlink{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b}{freq}});\ \textcolor{comment}{//\ Formatte\ le\ message\ de\ vitesse}}
+\DoxyCodeLine{00037\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}},\ strlen(\mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}}),\ HAL\_MAX\_DELAY);\ \textcolor{comment}{//\ Transmet\ le\ message\ via\ l'UART2}}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}\label{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096} 
+\index{mesure.c@{mesure.c}!count1@{count1}}
+\index{count1@{count1}!mesure.c@{mesure.c}}
+\doxysubsubsection{\texorpdfstring{count1}{count1}}
+{\footnotesize\ttfamily uint32\+\_\+t count1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{mesure_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{mesure_8c_source}{mesure.\+c}}.
+
+\Hypertarget{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60}\label{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60} 
+\index{mesure.c@{mesure.c}!count2@{count2}}
+\index{count2@{count2}!mesure.c@{mesure.c}}
+\doxysubsubsection{\texorpdfstring{count2}{count2}}
+{\footnotesize\ttfamily uint32\+\_\+t count2}
+
+
+
+Définition à la ligne \mbox{\hyperlink{mesure_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{mesure_8c_source}{mesure.\+c}}.
+
+\Hypertarget{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b}\label{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b} 
+\index{mesure.c@{mesure.c}!freq@{freq}}
+\index{freq@{freq}!mesure.c@{mesure.c}}
+\doxysubsubsection{\texorpdfstring{freq}{freq}}
+{\footnotesize\ttfamily uint32\+\_\+t freq}
+
+
+
+Définition à la ligne \mbox{\hyperlink{mesure_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{mesure_8c_source}{mesure.\+c}}.
+
+\Hypertarget{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}\label{mesure_8c_a7356e7a73258ba35a53973bd0fa899be} 
+\index{mesure.c@{mesure.c}!vitesse@{vitesse}}
+\index{vitesse@{vitesse}!mesure.c@{mesure.c}}
+\doxysubsubsection{\texorpdfstring{vitesse}{vitesse}}
+{\footnotesize\ttfamily char vitesse\mbox{[}30\mbox{]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{mesure_8c_source_l00022}{22}} du fichier \mbox{\hyperlink{mesure_8c_source}{mesure.\+c}}.
+

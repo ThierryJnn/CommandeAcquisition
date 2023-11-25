@@ -1,0 +1,86 @@
+\doxysection{Référence du fichier C\+:/\+Users/thier/\+One\+Drive/\+Bureau/.git/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/gpio.c}
+\hypertarget{gpio_8c}{}\label{gpio_8c}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/gpio.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/gpio.c}}
+
+
+This file provides code for the configuration of all used GPIO pins.  
+
+
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{gpio_8c_ac724e431d2af879252de35615be2bdea}{MX\+\_\+\+GPIO\+\_\+\+Init}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides code for the configuration of all used GPIO pins. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+Définition dans le fichier \mbox{\hyperlink{gpio_8c_source}{gpio.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{gpio_8c_ac724e431d2af879252de35615be2bdea}\label{gpio_8c_ac724e431d2af879252de35615be2bdea} 
+\index{gpio.c@{gpio.c}!MX\_GPIO\_Init@{MX\_GPIO\_Init}}
+\index{MX\_GPIO\_Init@{MX\_GPIO\_Init}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{MX\_GPIO\_Init()}{MX\_GPIO\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+GPIO\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Configure pins as Analog Input Output EVENT\+\_\+\+OUT EXTI 
+
+Définition à la ligne \mbox{\hyperlink{gpio_8c_source_l00042}{42}} du fichier \mbox{\hyperlink{gpio_8c_source}{gpio.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ GPIO\_InitTypeDef\ GPIO\_InitStruct\ =\ \{0\};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{/*\ GPIO\ Ports\ Clock\ Enable\ */}}
+\DoxyCodeLine{00048\ \ \ \_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE();}
+\DoxyCodeLine{00049\ \ \ \_\_HAL\_RCC\_GPIOF\_CLK\_ENABLE();}
+\DoxyCodeLine{00050\ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE();}
+\DoxyCodeLine{00051\ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE();}
+\DoxyCodeLine{00052\ \ \ \_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ Output\ Level\ */}}
+\DoxyCodeLine{00055\ \ \ HAL\_GPIO\_WritePin(USR\_LED\_GPIO\_Port,\ USR\_LED\_Pin,\ GPIO\_PIN\_RESET);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ Output\ Level\ */}}
+\DoxyCodeLine{00058\ \ \ HAL\_GPIO\_WritePin(NRST\_SafetyUC\_GPIO\_Port,\ NRST\_SafetyUC\_Pin,\ GPIO\_PIN\_RESET);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ :\ PtPin\ */}}
+\DoxyCodeLine{00061\ \ \ GPIO\_InitStruct.Pin\ =\ USR\_BTN\_Pin;}
+\DoxyCodeLine{00062\ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_IT\_RISING;}
+\DoxyCodeLine{00063\ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00064\ \ \ HAL\_GPIO\_Init(USR\_BTN\_GPIO\_Port,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ :\ PtPin\ */}}
+\DoxyCodeLine{00067\ \ \ GPIO\_InitStruct.Pin\ =\ USR\_LED\_Pin;}
+\DoxyCodeLine{00068\ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_OUTPUT\_PP;}
+\DoxyCodeLine{00069\ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00070\ \ \ GPIO\_InitStruct.Speed\ =\ GPIO\_SPEED\_FREQ\_LOW;}
+\DoxyCodeLine{00071\ \ \ HAL\_GPIO\_Init(USR\_LED\_GPIO\_Port,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ :\ PtPin\ */}}
+\DoxyCodeLine{00074\ \ \ GPIO\_InitStruct.Pin\ =\ NRST\_SafetyUC\_Pin;}
+\DoxyCodeLine{00075\ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_OUTPUT\_PP;}
+\DoxyCodeLine{00076\ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00077\ \ \ GPIO\_InitStruct.Speed\ =\ GPIO\_SPEED\_FREQ\_LOW;}
+\DoxyCodeLine{00078\ \ \ HAL\_GPIO\_Init(NRST\_SafetyUC\_GPIO\_Port,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{comment}{/*\ EXTI\ interrupt\ init*/}}
+\DoxyCodeLine{00081\ \ \ HAL\_NVIC\_SetPriority(EXTI15\_10\_IRQn,\ 0,\ 0);}
+\DoxyCodeLine{00082\ \ \ HAL\_NVIC\_EnableIRQ(EXTI15\_10\_IRQn);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}

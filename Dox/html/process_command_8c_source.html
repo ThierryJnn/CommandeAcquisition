@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP Systèmes d&#39;acquisition et de commande:  Fichier source de C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-G474RET6-Inverter_Pinout/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/processCommand.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Logo_ENSEA.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">TP Systèmes d&#39;acquisition et de commande<span id="projectnumber">&#160;. JANNIN Thierry &amp; GOBOLO Johan</span>
+   </div>
+   <div id="projectbrief">Commande en vitesse d&#39;une MCC par generation de PWM en commande complémentaire décalé</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_891d5bba68483912d1661383b9728971.html">.git</a></li><li class="navelem"><a class="el" href="dir_31ddab8a84a122938313feeebde3a7a1.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_b06806316106b8d7c92018c3922f5894.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_36c73d1e8ff5eccf1d80b88c5e18c792.html">Core</a></li><li class="navelem"><a class="el" href="dir_dd27d23cc0de33be28462a3b1ce1ae6f.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">processCommand.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="process_command_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * processCommand.c</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *  Created on: Oct 3, 2023</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *      Author: thier</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;adc.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;tim.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;speed.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;usart.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;gpio.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;string.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;pinout.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;startMotor.h&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;stopMotor.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="process_command_8c.html#af86685d260bf1b9f92bec64bdac8df49">   25</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="process_command_8c.html#af86685d260bf1b9f92bec64bdac8df49">Power</a>=0; <span class="comment">// Initie la variable globale &quot;Power&quot; à 0 au démarrage du programme car le moteur est éteint.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="process_command_8c.html#a79403147e94f68125edd1dbd1da03a06">   33</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="process_command_8c.html#a79403147e94f68125edd1dbd1da03a06">processCommand</a>(<span class="keywordtype">char</span>* <a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// Vérifie si la commande est &quot;help&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">if</span> (strcmp(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>, <span class="stringliteral">&quot;help&quot;</span>) == 0) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="comment">// Affiche le message d&#39;aide</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot;Commandes disponibles :\r\n&quot;</span>, strlen(<span class="stringliteral">&quot;Commandes disponibles :\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot; - help : Affiche ce message d&#39;aide\r\n&quot;</span>, strlen(<span class="stringliteral">&quot; - help : Affiche ce message d&#39;aide\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot; - pinout : Affiche la configuration des pins\r\n&quot;</span>, strlen(<span class="stringliteral">&quot; - pinout : Affiche la configuration des pins\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot; - start : Demarre le moteur\r\n&quot;</span>, strlen(<span class="stringliteral">&quot; - start : Demarre le moteur\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot; - stop : Arrete le moteur\r\n&quot;</span>, strlen(<span class="stringliteral">&quot; - start : Arrete le moteur\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot; - speed xxxx : Regle la vitesse du moteur\r\n&quot;</span>, strlen(<span class="stringliteral">&quot; - speed xxxx : Regle la vitesse du moteur\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot;    -- xxxx est compris entre 0 et 1024, a 512 le moteur est a l&#39;arret\r\n&quot;</span>, strlen(<span class="stringliteral">&quot;   -- xxxx est compris entre 0 et 1024, a 512 le moteur est a l&#39;arret\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">// Ajoutez d&#39;autres commandes et leurs descriptions ici</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Vérifie si la commande est &quot;pinout&quot;</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">if</span> (strcmp(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>, <span class="stringliteral">&quot;pinout&quot;</span>) == 0) {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_function" href="pinout_8c.html#a78b88b11df8b07b9a760d1c01bf15e5a">pinout</a>(); <span class="comment">// Appeler la fonction pinout</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// Vérifie si la commande est &quot;start&quot;</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (strcmp(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>, <span class="stringliteral">&quot;start&quot;</span>) == 0) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_function" href="start_motor_8c.html#a38e4b9838f7dc595ffb571461204365b">startMotor</a>(); <span class="comment">// Appeler la fonction startMotor</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// Vérifie si la commande est &quot;stop&quot;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (strcmp(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>, <span class="stringliteral">&quot;stop&quot;</span>) == 0) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="stop_motor_8c.html#ac485965697295992f2599633a3f5126a">stopMotor</a>(); <span class="comment">// Appeler la fonction stopMotor</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// Vérifie si la commande commence par &quot;speed&quot;</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">if</span> (strncmp(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>, <span class="stringliteral">&quot;speed&quot;</span>, 5) == 0) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment">// Extrait les quatre chiffres suivant &quot;speed&quot;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordtype">int</span> digit;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> (sscanf(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a> + 5, <span class="stringliteral">&quot;%d&quot;</span>, &amp;digit) == 1) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <a class="code hl_function" href="speed_8c.html#adbad1393d8d099222864583096979669">speed</a>(digit); <span class="comment">// Appeler la fonction speed avec les 4 chiffres en argument</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot;Format incorrect. Utilisation : speed &lt;chiffre&gt;\r\n&quot;</span>, strlen(<span class="stringliteral">&quot;Format incorrect. Utilisation : speed &lt;chiffre&gt;\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot;Commande inconnue\r\n&quot;</span>, strlen(<span class="stringliteral">&quot;Commande inconnue\r\n&quot;</span>), HAL_MAX_DELAY);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// Ajouter d&#39;autres conditions pour d&#39;autres commandes si nécessaire</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+</div>
+<div class="ttc" id="amain_8c_html_a4ebc69d04b4a5889106a7eb3fc59bfd1"><div class="ttname"><a href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a></div><div class="ttdeci">char command[32]</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00054">main.c:54</a></div></div>
+<div class="ttc" id="apinout_8c_html_a78b88b11df8b07b9a760d1c01bf15e5a"><div class="ttname"><a href="pinout_8c.html#a78b88b11df8b07b9a760d1c01bf15e5a">pinout</a></div><div class="ttdeci">void pinout()</div><div class="ttdoc">Affiche les informations sur la configuration des broches.</div><div class="ttdef"><b>Definition</b> <a href="pinout_8c_source.html#l00047">pinout.c:47</a></div></div>
+<div class="ttc" id="aprocess_command_8c_html_a79403147e94f68125edd1dbd1da03a06"><div class="ttname"><a href="process_command_8c.html#a79403147e94f68125edd1dbd1da03a06">processCommand</a></div><div class="ttdeci">void processCommand(char *command)</div><div class="ttdoc">Traite la commande reçue sur l'UART.</div><div class="ttdef"><b>Definition</b> <a href="process_command_8c_source.html#l00033">processCommand.c:33</a></div></div>
+<div class="ttc" id="aprocess_command_8c_html_af86685d260bf1b9f92bec64bdac8df49"><div class="ttname"><a href="process_command_8c.html#af86685d260bf1b9f92bec64bdac8df49">Power</a></div><div class="ttdeci">int Power</div><div class="ttdef"><b>Definition</b> <a href="process_command_8c_source.html#l00025">processCommand.c:25</a></div></div>
+<div class="ttc" id="aspeed_8c_html_adbad1393d8d099222864583096979669"><div class="ttname"><a href="speed_8c.html#adbad1393d8d099222864583096979669">speed</a></div><div class="ttdeci">void speed(int digit)</div><div class="ttdoc">Contrôle la vitesse du moteur.</div><div class="ttdef"><b>Definition</b> <a href="speed_8c_source.html#l00033">speed.c:33</a></div></div>
+<div class="ttc" id="astart_motor_8c_html_a38e4b9838f7dc595ffb571461204365b"><div class="ttname"><a href="start_motor_8c.html#a38e4b9838f7dc595ffb571461204365b">startMotor</a></div><div class="ttdeci">void startMotor()</div><div class="ttdoc">Active le moteur en démarrant la génération des PWM.</div><div class="ttdef"><b>Definition</b> <a href="start_motor_8c_source.html#l00030">startMotor.c:30</a></div></div>
+<div class="ttc" id="astm32g4xx__it_8c_html_aa9479c261d65eecedd3d9582f7f0f89c"><div class="ttname"><a href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a></div><div class="ttdeci">UART_HandleTypeDef huart2</div><div class="ttdef"><b>Definition</b> <a href="usart_8c_source.html#l00027">usart.c:27</a></div></div>
+<div class="ttc" id="astop_motor_8c_html_ac485965697295992f2599633a3f5126a"><div class="ttname"><a href="stop_motor_8c.html#ac485965697295992f2599633a3f5126a">stopMotor</a></div><div class="ttdeci">void stopMotor()</div><div class="ttdoc">Désactive le moteur en arrêtant la génération des PWM.</div><div class="ttdef"><b>Definition</b> <a href="stop_motor_8c_source.html#l00031">stopMotor.c:31</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

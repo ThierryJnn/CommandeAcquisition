@@ -1,0 +1,41 @@
+\doxysection{stop\+Motor.\+c}
+\hypertarget{stop_motor_8c_source}{}\label{stop_motor_8c_source}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/stopMotor.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/stopMotor.c}}
+\mbox{\hyperlink{stop_motor_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00002}00002\ \textcolor{comment}{\ *\ stopMotor.c}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00004}00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Oct\ 3,\ 2023}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00005}00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ thier}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}adc.h"{}}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}tim.h"{}}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}usart.h"{}}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00022}00022\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stop_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}};\ \textcolor{comment}{//\ Variable\ externe\ indiquant\ l'état\ de\ la\ puissance\ du\ moteur\ (allumé/éteint)}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00031}\mbox{\hyperlink{stop_motor_8c_ac485965697295992f2599633a3f5126a}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{stop_motor_8c_ac485965697295992f2599633a3f5126a}{stopMotor}}()\ \{}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ Desactivez\ l'étage\ de\ puissance\ du\ moteur\ (code\ pour\ desactiver\ le\ moteur)}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{stop_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}==1)\{}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ moteur\ est\ allumé,\ éteignez-\/le}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stop_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}=0;\ \textcolor{comment}{//\ Met\ à\ jour\ l'état\ de\ la\ puissance\ du\ moteur}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Stop(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);\ \textcolor{comment}{//\ Arrête\ le\ PWM\ pour\ le\ canal\ 1\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Stop(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);\ \textcolor{comment}{//\ Arrête\ le\ PWM\ pour\ le\ canal\ 2\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ HAL\_TIMEx\_PWMN\_Stop(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);\ \textcolor{comment}{//\ Arrête\ le\ PWM\ complémentaire\ pour\ le\ canal\ 1\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ HAL\_TIMEx\_PWMN\_Stop(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);\ \textcolor{comment}{//\ Arrête\ le\ PWM\ complémentaire\ pour\ le\ canal\ 2\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_1,512);\ \textcolor{comment}{//\ Réglez\ le\ rapport\ cyclique\ pour\ le\ canal\ 1\ à\ l'arrêt}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_2,1024-\/512);\ \textcolor{comment}{//\ Réglez\ le\ rapport\ cyclique\ pour\ le\ canal\ 2\ à\ l'arrêt}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Affichez\ le\ message\ "{}Power\ OFF"{}\ dans\ la\ console}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Power\ OFF\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Power\ OFF\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Quittez\ la\ fonction\ après\ avoir\ éteint\ le\ moteur}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ moteur\ est\ déjà\ éteint,\ affichez\ un\ message\ correspondant}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Moteur\ déjà\ éteint\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Moteur\ déjà\ éteint\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stop_motor_8c_source_l00050}00050\ \}}
+
+\end{DoxyCode}

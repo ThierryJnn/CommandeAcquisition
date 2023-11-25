@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP Systèmes d&#39;acquisition et de commande: Référence du fichier C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-G474RET6-Inverter_Pinout/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/mesure.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Logo_ENSEA.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">TP Systèmes d&#39;acquisition et de commande<span id="projectnumber">&#160;. JANNIN Thierry &amp; GOBOLO Johan</span>
+   </div>
+   <div id="projectbrief">Commande en vitesse d&#39;une MCC par generation de PWM en commande complémentaire décalé</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_891d5bba68483912d1661383b9728971.html">.git</a></li><li class="navelem"><a class="el" href="dir_31ddab8a84a122938313feeebde3a7a1.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_b06806316106b8d7c92018c3922f5894.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_36c73d1e8ff5eccf1d80b88c5e18c792.html">Core</a></li><li class="navelem"><a class="el" href="dir_dd27d23cc0de33be28462a3b1ce1ae6f.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier mesure.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This file provides the code for measuring the speed of the motor by the encoder.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;adc.h&quot;</code><br />
+<code>#include &quot;tim.h&quot;</code><br />
+<code>#include &quot;usart.h&quot;</code><br />
+<code>#include &quot;gpio.h&quot;</code><br />
+<code>#include &quot;string.h&quot;</code><br />
+</div>
+<p><a href="mesure_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aefe3e9a9f741eac596850c28b83580f3" id="r_aefe3e9a9f741eac596850c28b83580f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesure_8c.html#aefe3e9a9f741eac596850c28b83580f3">mesureSpeed</a> (void)</td></tr>
+<tr class="memdesc:aefe3e9a9f741eac596850c28b83580f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mesure la vitesse du moteur en tours par minute (tpm).  <br /></td></tr>
+<tr class="separator:aefe3e9a9f741eac596850c28b83580f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad53c2ce3411fd9012443e3a403ca5096" id="r_ad53c2ce3411fd9012443e3a403ca5096"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesure_8c.html#ad53c2ce3411fd9012443e3a403ca5096">count1</a></td></tr>
+<tr class="separator:ad53c2ce3411fd9012443e3a403ca5096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b4177a44a2fd4183f637cfe291cc60" id="r_a55b4177a44a2fd4183f637cfe291cc60"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesure_8c.html#a55b4177a44a2fd4183f637cfe291cc60">count2</a></td></tr>
+<tr class="separator:a55b4177a44a2fd4183f637cfe291cc60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacfad457f5366fa9265eb0a89e43f23b" id="r_aacfad457f5366fa9265eb0a89e43f23b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesure_8c.html#aacfad457f5366fa9265eb0a89e43f23b">freq</a></td></tr>
+<tr class="separator:aacfad457f5366fa9265eb0a89e43f23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7356e7a73258ba35a53973bd0fa899be" id="r_a7356e7a73258ba35a53973bd0fa899be"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesure_8c.html#a7356e7a73258ba35a53973bd0fa899be">vitesse</a> [30]</td></tr>
+<tr class="separator:a7356e7a73258ba35a53973bd0fa899be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>This file provides the code for measuring the speed of the motor by the encoder. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="mesure_8c_source.html">mesure.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aefe3e9a9f741eac596850c28b83580f3" name="aefe3e9a9f741eac596850c28b83580f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe3e9a9f741eac596850c28b83580f3">&#9670;&#160;</a></span>mesureSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mesureSpeed </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mesure la vitesse du moteur en tours par minute (tpm). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Cette fonction utilise le compteur du TIM3 pour mesurer la période entre deux impulsions et calcule la fréquence pour obtenir la vitesse en tpm. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="mesure_8c_source.html#l00031">31</a> du fichier <a class="el" href="mesure_8c_source.html">mesure.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>                      {</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="mesure_8c.html#ad53c2ce3411fd9012443e3a403ca5096">count1</a> = __HAL_TIM_GET_COUNTER(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aac3d2c59ee0e3bbae1b99529a154eb62">htim3</a>); <span class="comment">// Obtient la valeur du compteur avant l&#39;attente</span></div>
+<div class="line"><span class="lineno">   33</span>    HAL_Delay(10); <span class="comment">// Attend 10 millisecondes</span></div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="mesure_8c.html#a55b4177a44a2fd4183f637cfe291cc60">count2</a> = __HAL_TIM_GET_COUNTER(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aac3d2c59ee0e3bbae1b99529a154eb62">htim3</a>); <span class="comment">// Obtient la valeur du compteur après l&#39;attente</span></div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="mesure_8c.html#aacfad457f5366fa9265eb0a89e43f23b">freq</a> = (<a class="code hl_variable" href="mesure_8c.html#a55b4177a44a2fd4183f637cfe291cc60">count2</a>-<a class="code hl_variable" href="mesure_8c.html#ad53c2ce3411fd9012443e3a403ca5096">count1</a>)*735/495; <span class="comment">// Calcule la fréquence (vitesse en tpm) en fonction du paramètrage du timer 3 et du codeur.</span></div>
+<div class="line"><span class="lineno">   36</span>    sprintf(<a class="code hl_variable" href="mesure_8c.html#a7356e7a73258ba35a53973bd0fa899be">vitesse</a>, <span class="stringliteral">&quot;Vitesse : %d tpm \r\n&quot;</span>, <a class="code hl_variable" href="mesure_8c.html#aacfad457f5366fa9265eb0a89e43f23b">freq</a>); <span class="comment">// Formatte le message de vitesse</span></div>
+<div class="line"><span class="lineno">   37</span>    HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <a class="code hl_variable" href="mesure_8c.html#a7356e7a73258ba35a53973bd0fa899be">vitesse</a>, strlen(<a class="code hl_variable" href="mesure_8c.html#a7356e7a73258ba35a53973bd0fa899be">vitesse</a>), HAL_MAX_DELAY); <span class="comment">// Transmet le message via l&#39;UART2</span></div>
+<div class="line"><span class="lineno">   38</span>}</div>
+<div class="ttc" id="amesure_8c_html_a55b4177a44a2fd4183f637cfe291cc60"><div class="ttname"><a href="mesure_8c.html#a55b4177a44a2fd4183f637cfe291cc60">count2</a></div><div class="ttdeci">uint32_t count2</div><div class="ttdef"><b>Definition</b> <a href="mesure_8c_source.html#l00021">mesure.c:21</a></div></div>
+<div class="ttc" id="amesure_8c_html_a7356e7a73258ba35a53973bd0fa899be"><div class="ttname"><a href="mesure_8c.html#a7356e7a73258ba35a53973bd0fa899be">vitesse</a></div><div class="ttdeci">char vitesse[30]</div><div class="ttdef"><b>Definition</b> <a href="mesure_8c_source.html#l00022">mesure.c:22</a></div></div>
+<div class="ttc" id="amesure_8c_html_aacfad457f5366fa9265eb0a89e43f23b"><div class="ttname"><a href="mesure_8c.html#aacfad457f5366fa9265eb0a89e43f23b">freq</a></div><div class="ttdeci">uint32_t freq</div><div class="ttdef"><b>Definition</b> <a href="mesure_8c_source.html#l00021">mesure.c:21</a></div></div>
+<div class="ttc" id="amesure_8c_html_ad53c2ce3411fd9012443e3a403ca5096"><div class="ttname"><a href="mesure_8c.html#ad53c2ce3411fd9012443e3a403ca5096">count1</a></div><div class="ttdeci">uint32_t count1</div><div class="ttdef"><b>Definition</b> <a href="mesure_8c_source.html#l00021">mesure.c:21</a></div></div>
+<div class="ttc" id="astm32g4xx__it_8c_html_aa9479c261d65eecedd3d9582f7f0f89c"><div class="ttname"><a href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a></div><div class="ttdeci">UART_HandleTypeDef huart2</div><div class="ttdef"><b>Definition</b> <a href="usart_8c_source.html#l00027">usart.c:27</a></div></div>
+<div class="ttc" id="astm32g4xx__it_8c_html_aac3d2c59ee0e3bbae1b99529a154eb62"><div class="ttname"><a href="stm32g4xx__it_8c.html#aac3d2c59ee0e3bbae1b99529a154eb62">htim3</a></div><div class="ttdeci">TIM_HandleTypeDef htim3</div><div class="ttdef"><b>Definition</b> <a href="tim_8c_source.html#l00028">tim.c:28</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="ad53c2ce3411fd9012443e3a403ca5096" name="ad53c2ce3411fd9012443e3a403ca5096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad53c2ce3411fd9012443e3a403ca5096">&#9670;&#160;</a></span>count1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t count1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="mesure_8c_source.html#l00021">21</a> du fichier <a class="el" href="mesure_8c_source.html">mesure.c</a>.</p>
+
+</div>
+</div>
+<a id="a55b4177a44a2fd4183f637cfe291cc60" name="a55b4177a44a2fd4183f637cfe291cc60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b4177a44a2fd4183f637cfe291cc60">&#9670;&#160;</a></span>count2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t count2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="mesure_8c_source.html#l00021">21</a> du fichier <a class="el" href="mesure_8c_source.html">mesure.c</a>.</p>
+
+</div>
+</div>
+<a id="aacfad457f5366fa9265eb0a89e43f23b" name="aacfad457f5366fa9265eb0a89e43f23b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfad457f5366fa9265eb0a89e43f23b">&#9670;&#160;</a></span>freq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t freq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="mesure_8c_source.html#l00021">21</a> du fichier <a class="el" href="mesure_8c_source.html">mesure.c</a>.</p>
+
+</div>
+</div>
+<a id="a7356e7a73258ba35a53973bd0fa899be" name="a7356e7a73258ba35a53973bd0fa899be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7356e7a73258ba35a53973bd0fa899be">&#9670;&#160;</a></span>vitesse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char vitesse[30]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="mesure_8c_source.html#l00022">22</a> du fichier <a class="el" href="mesure_8c_source.html">mesure.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

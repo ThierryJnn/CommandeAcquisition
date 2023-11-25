@@ -1,0 +1,123 @@
+\doxysection{Référence du fichier C\+:/\+Users/thier/\+One\+Drive/\+Bureau/.git/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/pinout.c}
+\hypertarget{pinout_8c}{}\label{pinout_8c}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/pinout.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/pinout.c}}
+
+
+This file provides the code for displaying the pinout configuration of the stm32 board.  
+
+
+{\ttfamily \#include "{}adc.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include "{}usart.\+h"{}}\newline
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+{\ttfamily \#include "{}string.\+h"{}}\newline
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_pin_info}{Pin\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pinout_8c_a78b88b11df8b07b9a760d1c01bf15e5a}{pinout}} ()
+\begin{DoxyCompactList}\small\item\em Affiche les informations sur la configuration des broches. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_pin_info}{Pin\+Info}} \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides the code for displaying the pinout configuration of the stm32 board. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{pinout_8c_source}{pinout.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{pinout_8c_a78b88b11df8b07b9a760d1c01bf15e5a}\label{pinout_8c_a78b88b11df8b07b9a760d1c01bf15e5a} 
+\index{pinout.c@{pinout.c}!pinout@{pinout}}
+\index{pinout@{pinout}!pinout.c@{pinout.c}}
+\doxysubsubsection{\texorpdfstring{pinout()}{pinout()}}
+{\footnotesize\ttfamily void pinout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affiche les informations sur la configuration des broches. 
+
+
+\begin{DoxyRetVals}{Valeurs retournées}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Paramètres}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Toutes les configurations de pin ne sont pas ajoutées mais le principe reste le même. 
+\end{DoxyNote}
+
+
+Définition à la ligne \mbox{\hyperlink{pinout_8c_source_l00047}{47}} du fichier \mbox{\hyperlink{pinout_8c_source}{pinout.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Pinout:\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Pinout:\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Parcours\ toutes\ les\ broches\ et\ affiche\ leurs\ informations}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}})\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[0]);\ i++)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ message[100];}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ snprintf(message,\ \textcolor{keyword}{sizeof}(message),\ \textcolor{stringliteral}{"{}Pin\ \%s:\ Function\ -\/\ \%s,\ State\ -\/\ \%s\(\backslash\)r\(\backslash\)n"{}},\ \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[i].name,\ \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[i].function,\ \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[i].state);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ message,\ strlen(message),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}\label{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e} 
+\index{pinout.c@{pinout.c}!pins@{pins}}
+\index{pins@{pins}!pinout.c@{pinout.c}}
+\doxysubsubsection{\texorpdfstring{pins}{pins}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_pin_info}{Pin\+Info}} pins\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA8"{}},\ \textcolor{stringliteral}{"{}U\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA9"{}},\ \textcolor{stringliteral}{"{}V\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA10"{}},\ \textcolor{stringliteral}{"{}W\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB13"{}},\ \textcolor{stringliteral}{"{}U\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB14"{}},\ \textcolor{stringliteral}{"{}V\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB15"{}},\ \textcolor{stringliteral}{"{}W\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA2"{}},\ \textcolor{stringliteral}{"{}USART2\_TX"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA3"{}},\ \textcolor{stringliteral}{"{}USART2\_RX"{}},\ \textcolor{stringliteral}{"{}IN"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{pinout_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{pinout_8c_source}{pinout.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA8"{}},\ \textcolor{stringliteral}{"{}U\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA9"{}},\ \textcolor{stringliteral}{"{}V\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA10"{}},\ \textcolor{stringliteral}{"{}W\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB13"{}},\ \textcolor{stringliteral}{"{}U\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB14"{}},\ \textcolor{stringliteral}{"{}V\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB15"{}},\ \textcolor{stringliteral}{"{}W\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA2"{}},\ \textcolor{stringliteral}{"{}USART2\_TX"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA3"{}},\ \textcolor{stringliteral}{"{}USART2\_RX"{}},\ \textcolor{stringliteral}{"{}IN"{}}\},}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ajoutez\ d'autres\ broches\ et\ leurs\ informations\ ici}}
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

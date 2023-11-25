@@ -1,0 +1,98 @@
+\doxysection{Référence du fichier C\+:/\+Users/thier/\+One\+Drive/\+Bureau/.git/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/start\+Motor.c}
+\hypertarget{start_motor_8c}{}\label{start_motor_8c}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/startMotor.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/startMotor.c}}
+
+
+This file provides the code for turning on the motor.  
+
+
+{\ttfamily \#include "{}adc.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include "{}usart.\+h"{}}\newline
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+{\ttfamily \#include "{}string.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{start_motor_8c_a38e4b9838f7dc595ffb571461204365b}{start\+Motor}} ()
+\begin{DoxyCompactList}\small\item\em Active le moteur en démarrant la génération des PWM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides the code for turning on the motor. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{start_motor_8c_source}{start\+Motor.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{start_motor_8c_a38e4b9838f7dc595ffb571461204365b}\label{start_motor_8c_a38e4b9838f7dc595ffb571461204365b} 
+\index{startMotor.c@{startMotor.c}!startMotor@{startMotor}}
+\index{startMotor@{startMotor}!startMotor.c@{startMotor.c}}
+\doxysubsubsection{\texorpdfstring{startMotor()}{startMotor()}}
+{\footnotesize\ttfamily void start\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Active le moteur en démarrant la génération des PWM. 
+
+
+\begin{DoxyRetVals}{Valeurs retournées}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Paramètres}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Si le moteur est déja allumé alors on affiche seulement un message l\textquotesingle{}indiquant. Le moteur est allumé par la génération des PWM. 
+\end{DoxyNote}
+
+
+Définition à la ligne \mbox{\hyperlink{start_motor_8c_source_l00030}{30}} du fichier \mbox{\hyperlink{start_motor_8c_source}{start\+Motor.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Activez\ l'étage\ de\ puissance\ du\ moteur\ (code\ pour\ activer\ le\ moteur)}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}==0)\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ moteur\ est\ éteint,\ activez-\/le}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}=1;\ \textcolor{comment}{//\ Met\ à\ jour\ l'état\ de\ la\ puissance\ du\ moteur}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ pour\ le\ canal\ 1\ du\ TIM1}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ pour\ le\ canal\ 2\ du\ TIM1}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ HAL\_TIMEx\_PWMN\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ complémentaire\ pour\ le\ canal\ 1\ du\ TIM1}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ HAL\_TIMEx\_PWMN\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ complémentaire\ pour\ le\ canal\ 2\ du\ TIM1}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_1,1024-\/512);\ \textcolor{comment}{//\ Réglez\ le\ rapport\ cyclique\ pour\ le\ canal\ 1}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_2,512);\ \textcolor{comment}{//\ Réglez\ le\ rapport\ cyclique\ pour\ le\ canal\ 2}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Affichez\ le\ message\ "{}Power\ ON"{}\ dans\ la\ console}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Power\ ON\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Power\ ON\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Quittez\ la\ fonction\ après\ avoir\ allumé\ le\ moteur}}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ moteur\ est\ déjà\ allumé,\ affichez\ un\ message\ correspondant}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Moteur\ déjà\ allumé\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Moteur\ déjà\ allumé\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49}\label{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49} 
+\index{startMotor.c@{startMotor.c}!Power@{Power}}
+\index{Power@{Power}!startMotor.c@{startMotor.c}}
+\doxysubsubsection{\texorpdfstring{Power}{Power}}
+{\footnotesize\ttfamily int Power\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{process_command_8c_source_l00025}{25}} du fichier \mbox{\hyperlink{process_command_8c_source}{process\+Command.\+c}}.
+

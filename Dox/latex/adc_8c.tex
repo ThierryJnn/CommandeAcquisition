@@ -1,0 +1,439 @@
+\doxysection{Référence du fichier C\+:/\+Users/thier/\+One\+Drive/\+Bureau/.git/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/adc.c}
+\hypertarget{adc_8c}{}\label{adc_8c}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/adc.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/adc.c}}
+
+
+This file provides code for the configuration of the ADC instances.  
+
+
+{\ttfamily \#include "{}adc.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{adc_8c_a3f61f2c2af0f122f81a87af8ad7b4360}{HAL\+\_\+\+ADC\+\_\+\+Msp\+De\+Init}} (ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}adc\+Handle)
+\item 
+void \mbox{\hyperlink{adc_8c_ac3139540667c403c5dfd37a99c610b1c}{HAL\+\_\+\+ADC\+\_\+\+Msp\+Init}} (ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}adc\+Handle)
+\item 
+void \mbox{\hyperlink{adc_8c_acccd58aa70215a6b184ad242312ffd0c}{MX\+\_\+\+ADC1\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{adc_8c_a101e2e3433dfe72bbbd0ae3a84489263}{MX\+\_\+\+ADC2\+\_\+\+Init}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}
+\item 
+ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}
+\item 
+static uint32\+\_\+t \mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\+\_\+\+RCC\+\_\+\+ADC12\+\_\+\+CLK\+\_\+\+ENABLED}} =0
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\+\_\+adc1}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides code for the configuration of the ADC instances. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+Définition dans le fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{adc_8c_a3f61f2c2af0f122f81a87af8ad7b4360}\label{adc_8c_a3f61f2c2af0f122f81a87af8ad7b4360} 
+\index{adc.c@{adc.c}!HAL\_ADC\_MspDeInit@{HAL\_ADC\_MspDeInit}}
+\index{HAL\_ADC\_MspDeInit@{HAL\_ADC\_MspDeInit}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_ADC\_MspDeInit()}{HAL\_ADC\_MspDeInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+ADC\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{adc\+Handle }\end{DoxyParamCaption})}
+
+ADC1 GPIO Configuration PC2 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN8 PA1 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN2 PB0 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN15 PB1 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN12 PB12 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN11
+
+Uncomment the line below to disable the "{}\+ADC1\+\_\+2\+\_\+\+IRQn"{} interrupt Be aware, disabling shared interrupt may affect other IPs
+
+ADC2 GPIO Configuration PC0 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN6 PC1 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN7 PC3 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN9 PA0 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN1
+
+Uncomment the line below to disable the "{}\+ADC1\+\_\+2\+\_\+\+IRQn"{} interrupt Be aware, disabling shared interrupt may affect other IPs
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00286}{286}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00287\ \{}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \textcolor{keywordflow}{if}(adcHandle-\/>Instance==ADC1)}
+\DoxyCodeLine{00290\ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1\_MspDeInit\ 0\ */}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1\_MspDeInit\ 0\ */}}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{comment}{/*\ Peripheral\ clock\ disable\ */}}
+\DoxyCodeLine{00295\ \ \ \ \ \mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}-\/-\/;}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}==0)\{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \_\_HAL\_RCC\_ADC12\_CLK\_DISABLE();}
+\DoxyCodeLine{00298\ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00307\ \ \ \ \ HAL\_GPIO\_DeInit(Bus\_Imes\_GPIO\_Port,\ Bus\_Imes\_Pin);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ HAL\_GPIO\_DeInit(U\_Imes\_GPIO\_Port,\ U\_Imes\_Pin);}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ HAL\_GPIO\_DeInit(GPIOB,\ GPIO\_PIN\_0|GPIO\_PIN\_1|GPIO\_PIN\_12);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{comment}{/*\ ADC1\ DMA\ DeInit\ */}}
+\DoxyCodeLine{00314\ \ \ \ \ HAL\_DMA\_DeInit(adcHandle-\/>DMA\_Handle);}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{comment}{/*\ ADC1\ interrupt\ Deinit\ */}}
+\DoxyCodeLine{00317\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1:ADC1\_2\_IRQn\ disable\ */}}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{comment}{/*\ HAL\_NVIC\_DisableIRQ(ADC1\_2\_IRQn);\ */}}
+\DoxyCodeLine{00323\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1:ADC1\_2\_IRQn\ disable\ */}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1\_MspDeInit\ 1\ */}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1\_MspDeInit\ 1\ */}}
+\DoxyCodeLine{00328\ \ \ \}}
+\DoxyCodeLine{00329\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(adcHandle-\/>Instance==ADC2)}
+\DoxyCodeLine{00330\ \ \ \{}
+\DoxyCodeLine{00331\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2\_MspDeInit\ 0\ */}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2\_MspDeInit\ 0\ */}}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{comment}{/*\ Peripheral\ clock\ disable\ */}}
+\DoxyCodeLine{00335\ \ \ \ \ \mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}-\/-\/;}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}==0)\{}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \_\_HAL\_RCC\_ADC12\_CLK\_DISABLE();}
+\DoxyCodeLine{00338\ \ \ \ \ \}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00346\ \ \ \ \ HAL\_GPIO\_DeInit(GPIOC,\ U\_VPh\_Pin|W\_VPh\_Pin|V\_VPh\_Pin);}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ HAL\_GPIO\_DeInit(Bus\_V\_GPIO\_Port,\ Bus\_V\_Pin);}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{comment}{/*\ ADC2\ interrupt\ Deinit\ */}}
+\DoxyCodeLine{00351\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2:ADC1\_2\_IRQn\ disable\ */}}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{comment}{/*\ HAL\_NVIC\_DisableIRQ(ADC1\_2\_IRQn);\ */}}
+\DoxyCodeLine{00357\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2:ADC1\_2\_IRQn\ disable\ */}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2\_MspDeInit\ 1\ */}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2\_MspDeInit\ 1\ */}}
+\DoxyCodeLine{00362\ \ \ \}}
+\DoxyCodeLine{00363\ \}}
+
+\end{DoxyCode}
+\Hypertarget{adc_8c_ac3139540667c403c5dfd37a99c610b1c}\label{adc_8c_ac3139540667c403c5dfd37a99c610b1c} 
+\index{adc.c@{adc.c}!HAL\_ADC\_MspInit@{HAL\_ADC\_MspInit}}
+\index{HAL\_ADC\_MspInit@{HAL\_ADC\_MspInit}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_ADC\_MspInit()}{HAL\_ADC\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+ADC\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{adc\+Handle }\end{DoxyParamCaption})}
+
+Initializes the peripherals clocks
+
+ADC1 GPIO Configuration PC2 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN8 PA1 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN2 PB0 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN15 PB1 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN12 PB12 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC1\+\_\+\+IN11
+
+Initializes the peripherals clocks
+
+ADC2 GPIO Configuration PC0 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN6 PC1 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN7 PC3 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN9 PA0 -\/-\/-\/---\texorpdfstring{$>$}{>} ADC2\+\_\+\+IN1
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00151}{151}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \{}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ GPIO\_InitTypeDef\ GPIO\_InitStruct\ =\ \{0\};}
+\DoxyCodeLine{00155\ \ \ HAL\_DMA\_MuxSyncConfigTypeDef\ pSyncConfig=\ \{0\};}
+\DoxyCodeLine{00156\ \ \ RCC\_PeriphCLKInitTypeDef\ PeriphClkInit\ =\ \{0\};}
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordflow}{if}(adcHandle-\/>Instance==ADC1)}
+\DoxyCodeLine{00158\ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1\_MspInit\ 0\ */}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1\_MspInit\ 0\ */}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00165\ \ \ \ \ PeriphClkInit.PeriphClockSelection\ =\ RCC\_PERIPHCLK\_ADC12;}
+\DoxyCodeLine{00166\ \ \ \ \ PeriphClkInit.Adc12ClockSelection\ =\ RCC\_ADC12CLKSOURCE\_SYSCLK;}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_RCCEx\_PeriphCLKConfig(\&PeriphClkInit)\ !=\ HAL\_OK)}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{/*\ ADC1\ clock\ enable\ */}}
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}++;}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}==1)\{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \_\_HAL\_RCC\_ADC12\_CLK\_ENABLE();}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE();}
+\DoxyCodeLine{00179\ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE();}
+\DoxyCodeLine{00180\ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE();}
+\DoxyCodeLine{00188\ \ \ \ \ GPIO\_InitStruct.Pin\ =\ Bus\_Imes\_Pin;}
+\DoxyCodeLine{00189\ \ \ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_ANALOG;}
+\DoxyCodeLine{00190\ \ \ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00191\ \ \ \ \ HAL\_GPIO\_Init(Bus\_Imes\_GPIO\_Port,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ GPIO\_InitStruct.Pin\ =\ U\_Imes\_Pin;}
+\DoxyCodeLine{00194\ \ \ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_ANALOG;}
+\DoxyCodeLine{00195\ \ \ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00196\ \ \ \ \ HAL\_GPIO\_Init(U\_Imes\_GPIO\_Port,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ GPIO\_InitStruct.Pin\ =\ GPIO\_PIN\_0|GPIO\_PIN\_1|GPIO\_PIN\_12;}
+\DoxyCodeLine{00199\ \ \ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_ANALOG;}
+\DoxyCodeLine{00200\ \ \ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00201\ \ \ \ \ HAL\_GPIO\_Init(GPIOB,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{comment}{/*\ ADC1\ DMA\ Init\ */}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{comment}{/*\ ADC1\ Init\ */}}
+\DoxyCodeLine{00205\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Instance\ =\ DMA1\_Channel1;}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.Request\ =\ DMA\_REQUEST\_ADC1;}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.Direction\ =\ DMA\_PERIPH\_TO\_MEMORY;}
+\DoxyCodeLine{00208\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.PeriphInc\ =\ DMA\_PINC\_DISABLE;}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.MemInc\ =\ DMA\_MINC\_ENABLE;}
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.PeriphDataAlignment\ =\ DMA\_PDATAALIGN\_HALFWORD;}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.MemDataAlignment\ =\ DMA\_MDATAALIGN\_HALFWORD;}
+\DoxyCodeLine{00212\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.Mode\ =\ DMA\_NORMAL;}
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}}.Init.Priority\ =\ DMA\_PRIORITY\_LOW;}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_DMA\_Init(\&\mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}})\ !=\ HAL\_OK)}
+\DoxyCodeLine{00215\ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ pSyncConfig.SyncSignalID\ =\ HAL\_DMAMUX1\_SYNC\_EXTI13;}
+\DoxyCodeLine{00220\ \ \ \ \ pSyncConfig.SyncPolarity\ =\ HAL\_DMAMUX\_SYNC\_RISING;}
+\DoxyCodeLine{00221\ \ \ \ \ pSyncConfig.SyncEnable\ =\ ENABLE;}
+\DoxyCodeLine{00222\ \ \ \ \ pSyncConfig.EventEnable\ =\ DISABLE;}
+\DoxyCodeLine{00223\ \ \ \ \ pSyncConfig.RequestNumber\ =\ 1;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_DMAEx\_ConfigMuxSync(\&\mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}},\ \&pSyncConfig)\ !=\ HAL\_OK)}
+\DoxyCodeLine{00225\ \ \ \ \ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \_\_HAL\_LINKDMA(adcHandle,DMA\_Handle,\mbox{\hyperlink{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\_adc1}});}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{/*\ ADC1\ interrupt\ Init\ */}}
+\DoxyCodeLine{00232\ \ \ \ \ HAL\_NVIC\_SetPriority(ADC1\_2\_IRQn,\ 0,\ 0);}
+\DoxyCodeLine{00233\ \ \ \ \ HAL\_NVIC\_EnableIRQ(ADC1\_2\_IRQn);}
+\DoxyCodeLine{00234\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1\_MspInit\ 1\ */}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1\_MspInit\ 1\ */}}
+\DoxyCodeLine{00237\ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(adcHandle-\/>Instance==ADC2)}
+\DoxyCodeLine{00239\ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2\_MspInit\ 0\ */}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2\_MspInit\ 0\ */}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00246\ \ \ \ \ PeriphClkInit.PeriphClockSelection\ =\ RCC\_PERIPHCLK\_ADC12;}
+\DoxyCodeLine{00247\ \ \ \ \ PeriphClkInit.Adc12ClockSelection\ =\ RCC\_ADC12CLKSOURCE\_SYSCLK;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_RCCEx\_PeriphCLKConfig(\&PeriphClkInit)\ !=\ HAL\_OK)}
+\DoxyCodeLine{00249\ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00251\ \ \ \ \ \}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{/*\ ADC2\ clock\ enable\ */}}
+\DoxyCodeLine{00254\ \ \ \ \ \mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}++;}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}==1)\{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \_\_HAL\_RCC\_ADC12\_CLK\_ENABLE();}
+\DoxyCodeLine{00257\ \ \ \ \ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE();}
+\DoxyCodeLine{00260\ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE();}
+\DoxyCodeLine{00267\ \ \ \ \ GPIO\_InitStruct.Pin\ =\ U\_VPh\_Pin|W\_VPh\_Pin|V\_VPh\_Pin;}
+\DoxyCodeLine{00268\ \ \ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_ANALOG;}
+\DoxyCodeLine{00269\ \ \ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00270\ \ \ \ \ HAL\_GPIO\_Init(GPIOC,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ GPIO\_InitStruct.Pin\ =\ Bus\_V\_Pin;}
+\DoxyCodeLine{00273\ \ \ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_ANALOG;}
+\DoxyCodeLine{00274\ \ \ \ \ GPIO\_InitStruct.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00275\ \ \ \ \ HAL\_GPIO\_Init(Bus\_V\_GPIO\_Port,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{comment}{/*\ ADC2\ interrupt\ Init\ */}}
+\DoxyCodeLine{00278\ \ \ \ \ HAL\_NVIC\_SetPriority(ADC1\_2\_IRQn,\ 0,\ 0);}
+\DoxyCodeLine{00279\ \ \ \ \ HAL\_NVIC\_EnableIRQ(ADC1\_2\_IRQn);}
+\DoxyCodeLine{00280\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2\_MspInit\ 1\ */}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2\_MspInit\ 1\ */}}
+\DoxyCodeLine{00283\ \ \ \}}
+\DoxyCodeLine{00284\ \}}
+
+\end{DoxyCode}
+\Hypertarget{adc_8c_acccd58aa70215a6b184ad242312ffd0c}\label{adc_8c_acccd58aa70215a6b184ad242312ffd0c} 
+\index{adc.c@{adc.c}!MX\_ADC1\_Init@{MX\_ADC1\_Init}}
+\index{MX\_ADC1\_Init@{MX\_ADC1\_Init}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{MX\_ADC1\_Init()}{MX\_ADC1\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+ADC1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Common config
+
+Configure the ADC multi-\/mode
+
+Configure Regular Channel
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00032}{32}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1\_Init\ 0\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1\_Init\ 0\ */}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ ADC\_MultiModeTypeDef\ multimode\ =\ \{0\};}
+\DoxyCodeLine{00040\ \ \ ADC\_ChannelConfTypeDef\ sConfig\ =\ \{0\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1\_Init\ 1\ */}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1\_Init\ 1\ */}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Instance\ =\ ADC1;}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.ClockPrescaler\ =\ ADC\_CLOCK\_SYNC\_PCLK\_DIV4;}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.Resolution\ =\ ADC\_RESOLUTION\_12B;}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.DataAlign\ =\ ADC\_DATAALIGN\_RIGHT;}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.GainCompensation\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.ScanConvMode\ =\ ADC\_SCAN\_DISABLE;}
+\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.EOCSelection\ =\ ADC\_EOC\_SINGLE\_CONV;}
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.LowPowerAutoWait\ =\ DISABLE;}
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.ContinuousConvMode\ =\ DISABLE;}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.NbrOfConversion\ =\ 1;}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.DiscontinuousConvMode\ =\ DISABLE;}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.ExternalTrigConv\ =\ ADC\_EXTERNALTRIG\_T1\_TRGO;}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.ExternalTrigConvEdge\ =\ ADC\_EXTERNALTRIGCONVEDGE\_RISING;}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.DMAContinuousRequests\ =\ DISABLE;}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.Overrun\ =\ ADC\_OVR\_DATA\_PRESERVED;}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}.Init.OversamplingMode\ =\ DISABLE;}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordflow}{if}\ (HAL\_ADC\_Init(\&\mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}})\ !=\ HAL\_OK)}
+\DoxyCodeLine{00065\ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00071\ \ \ multimode.Mode\ =\ ADC\_MODE\_INDEPENDENT;}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{if}\ (HAL\_ADCEx\_MultiModeConfigChannel(\&\mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}},\ \&multimode)\ !=\ HAL\_OK)}
+\DoxyCodeLine{00073\ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00075\ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00079\ \ \ sConfig.Channel\ =\ ADC\_CHANNEL\_8;}
+\DoxyCodeLine{00080\ \ \ sConfig.Rank\ =\ ADC\_REGULAR\_RANK\_1;}
+\DoxyCodeLine{00081\ \ \ sConfig.SamplingTime\ =\ ADC\_SAMPLETIME\_2CYCLES\_5;}
+\DoxyCodeLine{00082\ \ \ sConfig.SingleDiff\ =\ ADC\_SINGLE\_ENDED;}
+\DoxyCodeLine{00083\ \ \ sConfig.OffsetNumber\ =\ ADC\_OFFSET\_NONE;}
+\DoxyCodeLine{00084\ \ \ sConfig.Offset\ =\ 0;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{if}\ (HAL\_ADC\_ConfigChannel(\&\mbox{\hyperlink{adc_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}},\ \&sConfig)\ !=\ HAL\_OK)}
+\DoxyCodeLine{00086\ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00088\ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC1\_Init\ 2\ */}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC1\_Init\ 2\ */}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}
+\Hypertarget{adc_8c_a101e2e3433dfe72bbbd0ae3a84489263}\label{adc_8c_a101e2e3433dfe72bbbd0ae3a84489263} 
+\index{adc.c@{adc.c}!MX\_ADC2\_Init@{MX\_ADC2\_Init}}
+\index{MX\_ADC2\_Init@{MX\_ADC2\_Init}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{MX\_ADC2\_Init()}{MX\_ADC2\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+ADC2\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Common config
+
+Configure Regular Channel
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00095}{95}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2\_Init\ 0\ */}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2\_Init\ 0\ */}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ ADC\_ChannelConfTypeDef\ sConfig\ =\ \{0\};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2\_Init\ 1\ */}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2\_Init\ 1\ */}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Instance\ =\ ADC2;}
+\DoxyCodeLine{00111\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.ClockPrescaler\ =\ ADC\_CLOCK\_SYNC\_PCLK\_DIV4;}
+\DoxyCodeLine{00112\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.Resolution\ =\ ADC\_RESOLUTION\_12B;}
+\DoxyCodeLine{00113\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.DataAlign\ =\ ADC\_DATAALIGN\_RIGHT;}
+\DoxyCodeLine{00114\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.GainCompensation\ =\ 0;}
+\DoxyCodeLine{00115\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.ScanConvMode\ =\ ADC\_SCAN\_DISABLE;}
+\DoxyCodeLine{00116\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.EOCSelection\ =\ ADC\_EOC\_SINGLE\_CONV;}
+\DoxyCodeLine{00117\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.LowPowerAutoWait\ =\ DISABLE;}
+\DoxyCodeLine{00118\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.ContinuousConvMode\ =\ DISABLE;}
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.NbrOfConversion\ =\ 1;}
+\DoxyCodeLine{00120\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.DiscontinuousConvMode\ =\ DISABLE;}
+\DoxyCodeLine{00121\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.ExternalTrigConv\ =\ ADC\_SOFTWARE\_START;}
+\DoxyCodeLine{00122\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.ExternalTrigConvEdge\ =\ ADC\_EXTERNALTRIGCONVEDGE\_NONE;}
+\DoxyCodeLine{00123\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.DMAContinuousRequests\ =\ DISABLE;}
+\DoxyCodeLine{00124\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.Overrun\ =\ ADC\_OVR\_DATA\_PRESERVED;}
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}.Init.OversamplingMode\ =\ DISABLE;}
+\DoxyCodeLine{00126\ \ \ \textcolor{keywordflow}{if}\ (HAL\_ADC\_Init(\&\mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}})\ !=\ HAL\_OK)}
+\DoxyCodeLine{00127\ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00129\ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00133\ \ \ sConfig.Channel\ =\ ADC\_CHANNEL\_6;}
+\DoxyCodeLine{00134\ \ \ sConfig.Rank\ =\ ADC\_REGULAR\_RANK\_1;}
+\DoxyCodeLine{00135\ \ \ sConfig.SamplingTime\ =\ ADC\_SAMPLETIME\_2CYCLES\_5;}
+\DoxyCodeLine{00136\ \ \ sConfig.SingleDiff\ =\ ADC\_SINGLE\_ENDED;}
+\DoxyCodeLine{00137\ \ \ sConfig.OffsetNumber\ =\ ADC\_OFFSET\_NONE;}
+\DoxyCodeLine{00138\ \ \ sConfig.Offset\ =\ 0;}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordflow}{if}\ (HAL\_ADC\_ConfigChannel(\&\mbox{\hyperlink{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}},\ \&sConfig)\ !=\ HAL\_OK)}
+\DoxyCodeLine{00140\ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{00142\ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ ADC2\_Init\ 2\ */}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ ADC2\_Init\ 2\ */}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{adc_8c_a22b804736f5648d52f639b2647d4ed13}\label{adc_8c_a22b804736f5648d52f639b2647d4ed13} 
+\index{adc.c@{adc.c}!hadc1@{hadc1}}
+\index{hadc1@{hadc1}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{hadc1}{hadc1}}
+{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def hadc1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00027}{27}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+\Hypertarget{adc_8c_acd9221f1aa19aebfe0b744947f2daf49}\label{adc_8c_acd9221f1aa19aebfe0b744947f2daf49} 
+\index{adc.c@{adc.c}!hadc2@{hadc2}}
+\index{hadc2@{hadc2}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{hadc2}{hadc2}}
+{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def hadc2}
+
+
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+\Hypertarget{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8}\label{adc_8c_aa80765d6a2be18aab6d9f93c12bc9cd8} 
+\index{adc.c@{adc.c}!HAL\_RCC\_ADC12\_CLK\_ENABLED@{HAL\_RCC\_ADC12\_CLK\_ENABLED}}
+\index{HAL\_RCC\_ADC12\_CLK\_ENABLED@{HAL\_RCC\_ADC12\_CLK\_ENABLED}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_RCC\_ADC12\_CLK\_ENABLED}{HAL\_RCC\_ADC12\_CLK\_ENABLED}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+RCC\+\_\+\+ADC12\+\_\+\+CLK\+\_\+\+ENABLED =0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00149}{149}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+
+\Hypertarget{adc_8c_a1c126854bb1813d31ab4776b21dcc51f}\label{adc_8c_a1c126854bb1813d31ab4776b21dcc51f} 
+\index{adc.c@{adc.c}!hdma\_adc1@{hdma\_adc1}}
+\index{hdma\_adc1@{hdma\_adc1}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_adc1}{hdma\_adc1}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+adc1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{adc_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{adc_8c_source}{adc.\+c}}.
+

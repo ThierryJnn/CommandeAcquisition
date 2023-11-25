@@ -1,0 +1,30 @@
+\doxysection{mesure.\+c}
+\hypertarget{mesure_8c_source}{}\label{mesure_8c_source}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mesure.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mesure.c}}
+\mbox{\hyperlink{mesure_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00002}00002\ \textcolor{comment}{\ *\ mesure.c}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00004}00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Nov\ 20,\ 2023}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00005}00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ thier}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}adc.h"{}}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}tim.h"{}}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}usart.h"{}}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00021}\mbox{\hyperlink{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}{00021}}\ uint32\_t\ \mbox{\hyperlink{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}{count1}},\ \mbox{\hyperlink{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60}{count2}},\ \mbox{\hyperlink{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b}{freq}};\ \textcolor{comment}{//\ Variables\ de\ mesure\ de\ la\ vitesse}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00022}\mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{00022}}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}}[30];\ \textcolor{comment}{//\ Chaîne\ pour\ stocker\ le\ message\ de\ vitesse}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00031}\mbox{\hyperlink{mesure_8c_aefe3e9a9f741eac596850c28b83580f3}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mesure_8c_aefe3e9a9f741eac596850c28b83580f3}{mesureSpeed}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}{count1}}\ =\ \_\_HAL\_TIM\_GET\_COUNTER(\&\mbox{\hyperlink{stm32g4xx__it_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}});\ \textcolor{comment}{//\ Obtient\ la\ valeur\ du\ compteur\ avant\ l'attente}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00033}00033\ \ \ \ \ HAL\_Delay(10);\ \textcolor{comment}{//\ Attend\ 10\ millisecondes}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60}{count2}}\ =\ \_\_HAL\_TIM\_GET\_COUNTER(\&\mbox{\hyperlink{stm32g4xx__it_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}});\ \textcolor{comment}{//\ Obtient\ la\ valeur\ du\ compteur\ après\ l'attente}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b}{freq}}\ =\ (\mbox{\hyperlink{mesure_8c_a55b4177a44a2fd4183f637cfe291cc60}{count2}}-\/\mbox{\hyperlink{mesure_8c_ad53c2ce3411fd9012443e3a403ca5096}{count1}})*735/495;\ \textcolor{comment}{//\ Calcule\ la\ fréquence\ (vitesse\ en\ tpm)\ en\ fonction\ du\ paramètrage\ du\ timer\ 3\ et\ du\ codeur.}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00036}00036\ \ \ \ \ sprintf(\mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}},\ \textcolor{stringliteral}{"{}Vitesse\ :\ \%d\ tpm\ \(\backslash\)r\(\backslash\)n"{}},\ \mbox{\hyperlink{mesure_8c_aacfad457f5366fa9265eb0a89e43f23b}{freq}});\ \textcolor{comment}{//\ Formatte\ le\ message\ de\ vitesse}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00037}00037\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}},\ strlen(\mbox{\hyperlink{mesure_8c_a7356e7a73258ba35a53973bd0fa899be}{vitesse}}),\ HAL\_MAX\_DELAY);\ \textcolor{comment}{//\ Transmet\ le\ message\ via\ l'UART2}}
+\DoxyCodeLine{\Hypertarget{mesure_8c_source_l00038}00038\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\doxysection{pinout.\+c}
+\hypertarget{pinout_8c_source}{}\label{pinout_8c_source}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/pinout.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/pinout.c}}
+\mbox{\hyperlink{pinout_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00002}00002\ \textcolor{comment}{\ *\ pinout.c}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00004}00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Oct\ 3,\ 2023}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00005}00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ thier}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}adc.h"{}}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}tim.h"{}}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}usart.h"{}}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00021}00021\ \textcolor{comment}{//\ Structure\ pour\ stocker\ les\ informations\ sur\ chaque\ broche}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00022}\mbox{\hyperlink{struct_pin_info}{00022}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00023}\mbox{\hyperlink{struct_pin_info_a9997d8ee2df51d18efed254a5aa016fd}{00023}}\ \ \ \ \ \textcolor{keywordtype}{char}\ name[20];\ \ \ \ \ \textcolor{comment}{//\ Nom\ de\ la\ broche}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00024}\mbox{\hyperlink{struct_pin_info_a99a652df4ab6395ca85728f29057d556}{00024}}\ \ \ \ \ \textcolor{keywordtype}{char}\ function[20];\ \textcolor{comment}{//\ Fonction\ de\ la\ broche}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00025}\mbox{\hyperlink{struct_pin_info_a7e30ed15294b5780821ad238c6f3d0df}{00025}}\ \ \ \ \ \textcolor{keywordtype}{char}\ state[20];\ \ \ \ \textcolor{comment}{//\ État\ de\ la\ broche\ (par\ exemple,\ IN,\ OUT,\ HIGH,\ LOW,\ etc.)}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00026}00026\ \}\ \mbox{\hyperlink{struct_pin_info}{PinInfo}};}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00028}00028\ \textcolor{comment}{//\ Tableau\ contenant\ les\ informations\ sur\ chaque\ broche}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00029}\mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{00029}}\ \mbox{\hyperlink{struct_pin_info}{PinInfo}}\ \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA8"{}},\ \textcolor{stringliteral}{"{}U\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA9"{}},\ \textcolor{stringliteral}{"{}V\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA10"{}},\ \textcolor{stringliteral}{"{}W\_PWM\_H"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB13"{}},\ \textcolor{stringliteral}{"{}U\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB14"{}},\ \textcolor{stringliteral}{"{}V\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PB15"{}},\ \textcolor{stringliteral}{"{}W\_PWM\_L"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA2"{}},\ \textcolor{stringliteral}{"{}USART2\_TX"{}},\ \textcolor{stringliteral}{"{}OUT"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}PA3"{}},\ \textcolor{stringliteral}{"{}USART2\_RX"{}},\ \textcolor{stringliteral}{"{}IN"{}}\},}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ajoutez\ d'autres\ broches\ et\ leurs\ informations\ ici}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00039}00039\ \};}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00047}\mbox{\hyperlink{pinout_8c_a78b88b11df8b07b9a760d1c01bf15e5a}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pinout_8c_a78b88b11df8b07b9a760d1c01bf15e5a}{pinout}}()\ \{}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00048}00048\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Pinout:\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Pinout:\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ Parcours\ toutes\ les\ broches\ et\ affiche\ leurs\ informations}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}})\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[0]);\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ message[100];}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ snprintf(message,\ \textcolor{keyword}{sizeof}(message),\ \textcolor{stringliteral}{"{}Pin\ \%s:\ Function\ -\/\ \%s,\ State\ -\/\ \%s\(\backslash\)r\(\backslash\)n"{}},\ \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[i].name,\ \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[i].function,\ \mbox{\hyperlink{pinout_8c_ac08d5e4821e02645f1f6da77acd6b92e}{pins}}[i].state);}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ message,\ strlen(message),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{pinout_8c_source_l00057}00057\ }
+
+\end{DoxyCode}

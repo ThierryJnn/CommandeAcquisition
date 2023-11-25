@@ -1,0 +1,70 @@
+\doxysection{speed.\+c}
+\hypertarget{speed_8c_source}{}\label{speed_8c_source}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/speed.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/speed.c}}
+\mbox{\hyperlink{speed_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00002}00002\ \textcolor{comment}{\ *\ speed.c}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00004}00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Oct\ 20,\ 2023}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00005}00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ thier}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}adc.h"{}}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}tim.h"{}}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}usart.h"{}}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}mesure.h"{}}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00022}00022\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{speed_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}};\ \textcolor{comment}{//\ Variable\ externe\ indiquant\ l'état\ de\ la\ puissance\ du\ moteur\ (allumé/éteint)}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00023}\mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{00023}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}}=512;\ \textcolor{comment}{//\ Variable\ de\ vitesse\ initiée\ a\ sa\ valeur\ initiale\ de\ 512\ (rapport\ cylique\ de\ 50\%\ donc\ le\ moteur\ ne\ tourne\ pas)}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00033}\mbox{\hyperlink{speed_8c_adbad1393d8d099222864583096979669}{00033}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{speed_8c_adbad1393d8d099222864583096979669}{speed}}(\textcolor{keywordtype}{int}\ digit)\ \{}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ oldspeed=\mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}};\ \textcolor{comment}{//\ Stocke\ l'ancienne\ valeur\ de\ la\ vitesse}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{int}\ i=0;\ \textcolor{comment}{//\ Variable\ de\ boucle}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{char}\ message[30];\ \textcolor{comment}{//\ Message\ à\ transmettre\ via\ l'UART}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{speed_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}==0)\{}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ moteur\ est\ éteint,\ affiche\ un\ message\ et\ quitte\ la\ fonction}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Moteur\ éteint\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Moteur\ éteint\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}}\ =\ digit;\ \textcolor{comment}{//\ Met\ à\ jour\ la\ vitesse\ avec\ la\ nouvelle\ valeur}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}}>1024)\ \{}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ vitesse\ demandée\ est\ supérieure\ à\ la\ limite,\ ajuste\ à\ la\ limite\ maximale}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}}=1024;}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Vitesse\ abaissée\ au\ max:\ 1023\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Vitesse\ abaissée\ au\ max:\ 1023\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}(oldspeed<\mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}})\{}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Augmente\ progressivement\ la\ vitesse\ du\ moteur}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i=oldspeed;i<\mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}};i=i+1)\{}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_1,1024-\/i);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_2,i);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ snprintf(message,\ \textcolor{keyword}{sizeof}(message),\ \textcolor{stringliteral}{"{}i:\ \%d\ \(\backslash\)r\(\backslash\)n"{}},\ i);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ message,\ strlen(message),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_Delay(20);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}(oldspeed>\mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}})\{}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Diminue\ progressivement\ la\ vitesse\ du\ moteur}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i=oldspeed;i>\mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}};i=i-\/1)\{}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_1,1024-\/i);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_2,i);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ snprintf(message,\ \textcolor{keyword}{sizeof}(message),\ \textcolor{stringliteral}{"{}i:\ \%d\ \(\backslash\)r\(\backslash\)n"{}},\ i);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ message,\ strlen(message),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_Delay(20);}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ Calcule\ et\ affiche\ le\ rapport\ cyclique}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{int}\ rapcycl=\ \mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}}*100/1024;}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{mesure_8c_aefe3e9a9f741eac596850c28b83580f3}{mesureSpeed}}();\ \textcolor{comment}{//\ Mesure\ et\ affichage\ la\ vitesse\ actuelle\ mesurée\ par\ le\ codeur}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00074}00074\ \ \ \ \ snprintf(message,\ \textcolor{keyword}{sizeof}(message),\ \textcolor{stringliteral}{"{}Speed:\ \%d\ \(\backslash\)r\(\backslash\)n"{}},\ \mbox{\hyperlink{speed_8c_a81ceb4deb3327b606fc3a1c09aa43576}{vit}});\ \textcolor{comment}{//\ Formatte\ le\ message\ de\ vitesse\ calculé\ par\ le\ programme}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00075}00075\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ message,\ strlen(message),\ HAL\_MAX\_DELAY);\ \textcolor{comment}{//\ Transmet\ le\ message\ de\ vitesse\ calculée\ via\ l'UART2}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00076}00076\ \ \ \ \ snprintf(message,\ \textcolor{keyword}{sizeof}(message),\ \textcolor{stringliteral}{"{}Rapport\ cyclique:\ \%d\ \(\backslash\)r\(\backslash\)n"{}},\ rapcycl);\ \textcolor{comment}{//\ Formatte\ le\ message\ de\ rapport\ cyclique\ calculé\ par\ le\ programme}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00077}00077\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ message,\ strlen(message),\ HAL\_MAX\_DELAY);\ \textcolor{comment}{//\ Transmet\ le\ message\ calculé\ par\ le\ programme\ via\ l'UART2}}
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{speed_8c_source_l00079}00079\ \}}
+
+\end{DoxyCode}

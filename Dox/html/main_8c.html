@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP Systèmes d&#39;acquisition et de commande: Référence du fichier C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-G474RET6-Inverter_Pinout/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Logo_ENSEA.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">TP Systèmes d&#39;acquisition et de commande<span id="projectnumber">&#160;. JANNIN Thierry &amp; GOBOLO Johan</span>
+   </div>
+   <div id="projectbrief">Commande en vitesse d&#39;une MCC par generation de PWM en commande complémentaire décalé</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_891d5bba68483912d1661383b9728971.html">.git</a></li><li class="navelem"><a class="el" href="dir_31ddab8a84a122938313feeebde3a7a1.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_b06806316106b8d7c92018c3922f5894.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_36c73d1e8ff5eccf1d80b88c5e18c792.html">Core</a></li><li class="navelem"><a class="el" href="dir_dd27d23cc0de33be28462a3b1ce1ae6f.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier main.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>: Main program body  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;adc.h&quot;</code><br />
+<code>#include &quot;dma.h&quot;</code><br />
+<code>#include &quot;tim.h&quot;</code><br />
+<code>#include &quot;usart.h&quot;</code><br />
+<code>#include &quot;gpio.h&quot;</code><br />
+<code>#include &quot;string.h&quot;</code><br />
+<code>#include &quot;stdbool.h&quot;</code><br />
+<code>#include &quot;processCommand.h&quot;</code><br />
+</div>
+<p><a href="main_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af4bced5cf8ed55746d4b5d34f9a0fe39" id="r_af4bced5cf8ed55746d4b5d34f9a0fe39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af4bced5cf8ed55746d4b5d34f9a0fe39">ENTER</a>&#160;&#160;&#160;0x0D</td></tr>
+<tr class="separator:af4bced5cf8ed55746d4b5d34f9a0fe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1730ffe1e560465665eb47d9264826f9" id="r_a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
+<tr class="memdesc:a1730ffe1e560465665eb47d9264826f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <br /></td></tr>
+<tr class="separator:a1730ffe1e560465665eb47d9264826f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a3b0ad512a6e6c6157440b68d395eac" id="r_a8a3b0ad512a6e6c6157440b68d395eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8a3b0ad512a6e6c6157440b68d395eac">HAL_TIM_PeriodElapsedCallback</a> (TIM_HandleTypeDef *htim)</td></tr>
+<tr class="memdesc:a8a3b0ad512a6e6c6157440b68d395eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Period elapsed callback in non blocking mode.  <br /></td></tr>
+<tr class="separator:a8a3b0ad512a6e6c6157440b68d395eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae494a9643f29b87d6d81e5264e60e57b" id="r_ae494a9643f29b87d6d81e5264e60e57b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae494a9643f29b87d6d81e5264e60e57b">HAL_UART_RxCpltCallback</a> (UART_HandleTypeDef *huart)</td></tr>
+<tr class="separator:ae494a9643f29b87d6d81e5264e60e57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application entry point.  <br /></td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70af21c671abfcc773614a9a4f63d920" id="r_a70af21c671abfcc773614a9a4f63d920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a> (void)</td></tr>
+<tr class="memdesc:a70af21c671abfcc773614a9a4f63d920"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Clock Configuration.  <br /></td></tr>
+<tr class="separator:a70af21c671abfcc773614a9a4f63d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4ebc69d04b4a5889106a7eb3fc59bfd1" id="r_a4ebc69d04b4a5889106a7eb3fc59bfd1"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a> [32]</td></tr>
+<tr class="separator:a4ebc69d04b4a5889106a7eb3fc59bfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a266732d9c228f9bac150e7554734d112" id="r_a266732d9c228f9bac150e7554734d112"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a266732d9c228f9bac150e7554734d112">idx</a> =0</td></tr>
+<tr class="separator:a266732d9c228f9bac150e7554734d112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed2ea057b34a0460fd536c5ea709dae" id="r_a6ed2ea057b34a0460fd536c5ea709dae"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6ed2ea057b34a0460fd536c5ea709dae">it_uart2</a> = 0</td></tr>
+<tr class="separator:a6ed2ea057b34a0460fd536c5ea709dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a755cb53f91881bf4852a1765ffc09dd6" id="r_a755cb53f91881bf4852a1765ffc09dd6"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a755cb53f91881bf4852a1765ffc09dd6">started</a> [] =&quot;Bienvenue dans le Shell de controle de la MCC \r\n&quot;</td></tr>
+<tr class="separator:a755cb53f91881bf4852a1765ffc09dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997fd09dd1c68f51e77519c666b897d2" id="r_a997fd09dd1c68f51e77519c666b897d2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a997fd09dd1c68f51e77519c666b897d2">uartRxBuffer</a> [1]</td></tr>
+<tr class="separator:a997fd09dd1c68f51e77519c666b897d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>: Main program body </p>
+<dl class="section attention"><dt>Attention</dt><dd></dd></dl>
+<p>Copyright (c) 2023 STMicroelectronics. All rights reserved.</p>
+<p>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="af4bced5cf8ed55746d4b5d34f9a0fe39" name="af4bced5cf8ed55746d4b5d34f9a0fe39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4bced5cf8ed55746d4b5d34f9a0fe39">&#9670;&#160;</a></span>ENTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENTER&#160;&#160;&#160;0x0D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00041">41</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a1730ffe1e560465665eb47d9264826f9" name="a1730ffe1e560465665eb47d9264826f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1730ffe1e560465665eb47d9264826f9">&#9670;&#160;</a></span>Error_Handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Error_Handler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is executed in case of error occurrence. </p>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00235">235</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  236</span>{</div>
+<div class="line"><span class="lineno">  237</span>  <span class="comment">/* USER CODE BEGIN Error_Handler_Debug */</span></div>
+<div class="line"><span class="lineno">  238</span>    <span class="comment">/* User can add his own implementation to report the HAL error return state */</span></div>
+<div class="line"><span class="lineno">  239</span>    __disable_irq();</div>
+<div class="line"><span class="lineno">  240</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><span class="lineno">  241</span>    {</div>
+<div class="line"><span class="lineno">  242</span>    }</div>
+<div class="line"><span class="lineno">  243</span>  <span class="comment">/* USER CODE END Error_Handler_Debug */</span></div>
+<div class="line"><span class="lineno">  244</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8a3b0ad512a6e6c6157440b68d395eac" name="a8a3b0ad512a6e6c6157440b68d395eac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3b0ad512a6e6c6157440b68d395eac">&#9670;&#160;</a></span>HAL_TIM_PeriodElapsedCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_TIM_PeriodElapsedCallback </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>htim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Period elapsed callback in non blocking mode. </p>
+<dl class="section note"><dt>Note</dt><dd>This function is called when TIM6 interrupt took place, inside HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment a global variable "uwTick" used as application time base. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">htim</td><td>: TIM handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00218">218</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  219</span>{</div>
+<div class="line"><span class="lineno">  220</span>  <span class="comment">/* USER CODE BEGIN Callback 0 */</span></div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span>  <span class="comment">/* USER CODE END Callback 0 */</span></div>
+<div class="line"><span class="lineno">  223</span>  <span class="keywordflow">if</span> (htim-&gt;Instance == TIM6) {</div>
+<div class="line"><span class="lineno">  224</span>    HAL_IncTick();</div>
+<div class="line"><span class="lineno">  225</span>  }</div>
+<div class="line"><span class="lineno">  226</span>  <span class="comment">/* USER CODE BEGIN Callback 1 */</span></div>
+<div class="line"><span class="lineno">  227</span> </div>
+<div class="line"><span class="lineno">  228</span>  <span class="comment">/* USER CODE END Callback 1 */</span></div>
+<div class="line"><span class="lineno">  229</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae494a9643f29b87d6d81e5264e60e57b" name="ae494a9643f29b87d6d81e5264e60e57b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae494a9643f29b87d6d81e5264e60e57b">&#9670;&#160;</a></span>HAL_UART_RxCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_UART_RxCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">UART_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>huart</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00202">202</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  203</span>{</div>
+<div class="line"><span class="lineno">  204</span>    HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <a class="code hl_variable" href="main_8c.html#a997fd09dd1c68f51e77519c666b897d2">uartRxBuffer</a>, 1, 100);</div>
+<div class="line"><span class="lineno">  205</span>    HAL_UART_Receive_IT(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <a class="code hl_variable" href="main_8c.html#a997fd09dd1c68f51e77519c666b897d2">uartRxBuffer</a>, 1);</div>
+<div class="line"><span class="lineno">  206</span>    <a class="code hl_variable" href="main_8c.html#a6ed2ea057b34a0460fd536c5ea709dae">it_uart2</a> = 1;</div>
+<div class="line"><span class="lineno">  207</span>}</div>
+<div class="ttc" id="amain_8c_html_a6ed2ea057b34a0460fd536c5ea709dae"><div class="ttname"><a href="main_8c.html#a6ed2ea057b34a0460fd536c5ea709dae">it_uart2</a></div><div class="ttdeci">uint8_t it_uart2</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00053">main.c:53</a></div></div>
+<div class="ttc" id="amain_8c_html_a997fd09dd1c68f51e77519c666b897d2"><div class="ttname"><a href="main_8c.html#a997fd09dd1c68f51e77519c666b897d2">uartRxBuffer</a></div><div class="ttdeci">char uartRxBuffer[1]</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00052">main.c:52</a></div></div>
+<div class="ttc" id="astm32g4xx__it_8c_html_aa9479c261d65eecedd3d9582f7f0f89c"><div class="ttname"><a href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a></div><div class="ttdeci">UART_HandleTypeDef huart2</div><div class="ttdef"><b>Definition</b> <a href="usart_8c_source.html#l00027">usart.c:27</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The application entry point. </p>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Transmet le message de démarrage via l'UART2.</p>
+<dl class="section note"><dt>Note</dt><dd>Ce message est envoyé au démarrage du programme.</dd></dl>
+<p>Active l'interruption pour la réception UART2.</p>
+<dl class="section note"><dt>Note</dt><dd>Cette ligne configure l'UART2 pour recevoir un octet à la fois en mode interruption pour chaque appuis de clavier dans la console.</dd></dl>
+<p>Boucle principale du programme.</p>
+<dl class="section note"><dt>Note</dt><dd>Cette boucle s'exécute en continu.</dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00074">74</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>{</div>
+<div class="line"><span class="lineno">   76</span>  <span class="comment">/* USER CODE BEGIN 1 */</span></div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>  <span class="comment">/* USER CODE END 1 */</span></div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>  <span class="comment">/* MCU Configuration--------------------------------------------------------*/</span></div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>  <span class="comment">/* Reset of all peripherals, Initializes the Flash interface and the Systick. */</span></div>
+<div class="line"><span class="lineno">   83</span>  HAL_Init();</div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>  <span class="comment">/* USER CODE BEGIN Init */</span></div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>  <span class="comment">/* USER CODE END Init */</span></div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>  <span class="comment">/* Configure the system clock */</span></div>
+<div class="line"><span class="lineno">   90</span>  <a class="code hl_function" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a>();</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>  <span class="comment">/* USER CODE BEGIN SysInit */</span></div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>  <span class="comment">/* USER CODE END SysInit */</span></div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>  <span class="comment">/* Initialize all configured peripherals */</span></div>
+<div class="line"><span class="lineno">   97</span>  <a class="code hl_function" href="gpio_8c.html#ac724e431d2af879252de35615be2bdea">MX_GPIO_Init</a>();</div>
+<div class="line"><span class="lineno">   98</span>  <a class="code hl_function" href="dma_8c.html#a323249dac769f9855c10b4ec9446b707">MX_DMA_Init</a>();</div>
+<div class="line"><span class="lineno">   99</span>  <a class="code hl_function" href="adc_8c.html#a101e2e3433dfe72bbbd0ae3a84489263">MX_ADC2_Init</a>();</div>
+<div class="line"><span class="lineno">  100</span>  <a class="code hl_function" href="adc_8c.html#acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</a>();</div>
+<div class="line"><span class="lineno">  101</span>  <a class="code hl_function" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14">MX_TIM1_Init</a>();</div>
+<div class="line"><span class="lineno">  102</span>  <a class="code hl_function" href="tim_8c.html#a7912f2916786a2c33cb6fb8259ade58c">MX_TIM3_Init</a>();</div>
+<div class="line"><span class="lineno">  103</span>  <a class="code hl_function" href="usart_8c.html#a052088fe5bb3f807a4b2502e664fd4fd">MX_USART2_UART_Init</a>();</div>
+<div class="line"><span class="lineno">  104</span>  <a class="code hl_function" href="usart_8c.html#a3d04b903a77089f6ce08dd0bf1c81a81">MX_USART3_UART_Init</a>();</div>
+<div class="line"><span class="lineno">  105</span>  <span class="comment">/* USER CODE BEGIN 2 */</span></div>
+<div class="line"><span class="lineno">  106</span> </div>
+<div class="line"><span class="lineno">  112</span>    HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <a class="code hl_variable" href="main_8c.html#a755cb53f91881bf4852a1765ffc09dd6">started</a>, strlen(<a class="code hl_variable" href="main_8c.html#a755cb53f91881bf4852a1765ffc09dd6">started</a>), HAL_MAX_DELAY);</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  119</span>    HAL_UART_Receive_IT(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <a class="code hl_variable" href="main_8c.html#a997fd09dd1c68f51e77519c666b897d2">uartRxBuffer</a>, 1);</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>  <span class="comment">/* USER CODE END 2 */</span></div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>  <span class="comment">/* Infinite loop */</span></div>
+<div class="line"><span class="lineno">  124</span>  <span class="comment">/* USER CODE BEGIN WHILE */</span></div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><span class="lineno">  132</span>    {</div>
+<div class="line"><span class="lineno">  133</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="main_8c.html#a6ed2ea057b34a0460fd536c5ea709dae">it_uart2</a>){</div>
+<div class="line"><span class="lineno">  134</span>            <span class="comment">// Si une interruption de l&#39;UART2 est générée donc une touche appuyée</span></div>
+<div class="line"><span class="lineno">  135</span>            <span class="keywordflow">if</span>(<a class="code hl_variable" href="main_8c.html#a997fd09dd1c68f51e77519c666b897d2">uartRxBuffer</a>[0]==<a class="code hl_define" href="main_8c.html#af4bced5cf8ed55746d4b5d34f9a0fe39">ENTER</a>){</div>
+<div class="line"><span class="lineno">  136</span>                <span class="comment">// Si la touche appuyée est ENTRER</span></div>
+<div class="line"><span class="lineno">  137</span>                HAL_UART_Transmit(&amp;<a class="code hl_variable" href="stm32g4xx__it_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, <span class="stringliteral">&quot;\r\n&quot;</span>, 2, HAL_MAX_DELAY); <span class="comment">// Ajout du Retour chariot et saut de ligne pour débuter une nouvelle ligne vierge dans la console.</span></div>
+<div class="line"><span class="lineno">  138</span>                <a class="code hl_function" href="process_command_8c.html#a79403147e94f68125edd1dbd1da03a06">processCommand</a>(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>); <span class="comment">// Envoie de la commande dans la fonction qui va la procéder</span></div>
+<div class="line"><span class="lineno">  139</span>                memset(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>, 0, <span class="keyword">sizeof</span>(<a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>)); <span class="comment">// Réinitialisation de la mémoire allouée à la variable commande, on écrit une nouvelle commande.</span></div>
+<div class="line"><span class="lineno">  140</span>                <a class="code hl_variable" href="main_8c.html#a266732d9c228f9bac150e7554734d112">idx</a>=0; <span class="comment">// Remise à 0 de l&#39;indice de position d&#39;écriture dans la chaine de caractère command</span></div>
+<div class="line"><span class="lineno">  141</span>            }</div>
+<div class="line"><span class="lineno">  142</span>            <span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">  143</span>                <span class="comment">// Si la touche appuyée n&#39;est pas ENTRER</span></div>
+<div class="line"><span class="lineno">  144</span>                <a class="code hl_variable" href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a>[<a class="code hl_variable" href="main_8c.html#a266732d9c228f9bac150e7554734d112">idx</a>++]=<a class="code hl_variable" href="main_8c.html#a997fd09dd1c68f51e77519c666b897d2">uartRxBuffer</a>[0]; <span class="comment">// Le caractère correspondant à la touche appuyée est ajouté à la chaine de caractère command</span></div>
+<div class="line"><span class="lineno">  145</span>            }</div>
+<div class="line"><span class="lineno">  146</span>            <a class="code hl_variable" href="main_8c.html#a6ed2ea057b34a0460fd536c5ea709dae">it_uart2</a> = 0;</div>
+<div class="line"><span class="lineno">  147</span>        }</div>
+<div class="line"><span class="lineno">  148</span> </div>
+<div class="line"><span class="lineno">  149</span>    <span class="comment">/* USER CODE END WHILE */</span></div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="comment">/* USER CODE BEGIN 3 */</span></div>
+<div class="line"><span class="lineno">  152</span>    }</div>
+<div class="line"><span class="lineno">  153</span>  <span class="comment">/* USER CODE END 3 */</span></div>
+<div class="line"><span class="lineno">  154</span>}</div>
+<div class="ttc" id="aadc_8c_html_a101e2e3433dfe72bbbd0ae3a84489263"><div class="ttname"><a href="adc_8c.html#a101e2e3433dfe72bbbd0ae3a84489263">MX_ADC2_Init</a></div><div class="ttdeci">void MX_ADC2_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="adc_8c_source.html#l00095">adc.c:95</a></div></div>
+<div class="ttc" id="aadc_8c_html_acccd58aa70215a6b184ad242312ffd0c"><div class="ttname"><a href="adc_8c.html#acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</a></div><div class="ttdeci">void MX_ADC1_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="adc_8c_source.html#l00032">adc.c:32</a></div></div>
+<div class="ttc" id="adma_8c_html_a323249dac769f9855c10b4ec9446b707"><div class="ttname"><a href="dma_8c.html#a323249dac769f9855c10b4ec9446b707">MX_DMA_Init</a></div><div class="ttdeci">void MX_DMA_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="dma_8c_source.html#l00039">dma.c:39</a></div></div>
+<div class="ttc" id="agpio_8c_html_ac724e431d2af879252de35615be2bdea"><div class="ttname"><a href="gpio_8c.html#ac724e431d2af879252de35615be2bdea">MX_GPIO_Init</a></div><div class="ttdeci">void MX_GPIO_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="gpio_8c_source.html#l00042">gpio.c:42</a></div></div>
+<div class="ttc" id="amain_8c_html_a266732d9c228f9bac150e7554734d112"><div class="ttname"><a href="main_8c.html#a266732d9c228f9bac150e7554734d112">idx</a></div><div class="ttdeci">uint8_t idx</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00055">main.c:55</a></div></div>
+<div class="ttc" id="amain_8c_html_a4ebc69d04b4a5889106a7eb3fc59bfd1"><div class="ttname"><a href="main_8c.html#a4ebc69d04b4a5889106a7eb3fc59bfd1">command</a></div><div class="ttdeci">char command[32]</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00054">main.c:54</a></div></div>
+<div class="ttc" id="amain_8c_html_a70af21c671abfcc773614a9a4f63d920"><div class="ttname"><a href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a></div><div class="ttdeci">void SystemClock_Config(void)</div><div class="ttdoc">System Clock Configuration.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00160">main.c:160</a></div></div>
+<div class="ttc" id="amain_8c_html_a755cb53f91881bf4852a1765ffc09dd6"><div class="ttname"><a href="main_8c.html#a755cb53f91881bf4852a1765ffc09dd6">started</a></div><div class="ttdeci">const uint8_t started[]</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00056">main.c:56</a></div></div>
+<div class="ttc" id="amain_8c_html_af4bced5cf8ed55746d4b5d34f9a0fe39"><div class="ttname"><a href="main_8c.html#af4bced5cf8ed55746d4b5d34f9a0fe39">ENTER</a></div><div class="ttdeci">#define ENTER</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00041">main.c:41</a></div></div>
+<div class="ttc" id="aprocess_command_8c_html_a79403147e94f68125edd1dbd1da03a06"><div class="ttname"><a href="process_command_8c.html#a79403147e94f68125edd1dbd1da03a06">processCommand</a></div><div class="ttdeci">void processCommand(char *command)</div><div class="ttdoc">Traite la commande reçue sur l'UART.</div><div class="ttdef"><b>Definition</b> <a href="process_command_8c_source.html#l00033">processCommand.c:33</a></div></div>
+<div class="ttc" id="atim_8c_html_a7912f2916786a2c33cb6fb8259ade58c"><div class="ttname"><a href="tim_8c.html#a7912f2916786a2c33cb6fb8259ade58c">MX_TIM3_Init</a></div><div class="ttdeci">void MX_TIM3_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="tim_8c_source.html#l00119">tim.c:119</a></div></div>
+<div class="ttc" id="atim_8c_html_ad1f9d42690163f73f73e5b820c81ca14"><div class="ttname"><a href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14">MX_TIM1_Init</a></div><div class="ttdeci">void MX_TIM1_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="tim_8c_source.html#l00032">tim.c:32</a></div></div>
+<div class="ttc" id="ausart_8c_html_a052088fe5bb3f807a4b2502e664fd4fd"><div class="ttname"><a href="usart_8c.html#a052088fe5bb3f807a4b2502e664fd4fd">MX_USART2_UART_Init</a></div><div class="ttdeci">void MX_USART2_UART_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="usart_8c_source.html#l00032">usart.c:32</a></div></div>
+<div class="ttc" id="ausart_8c_html_a3d04b903a77089f6ce08dd0bf1c81a81"><div class="ttname"><a href="usart_8c.html#a3d04b903a77089f6ce08dd0bf1c81a81">MX_USART3_UART_Init</a></div><div class="ttdeci">void MX_USART3_UART_Init(void)</div><div class="ttdef"><b>Definition</b> <a href="usart_8c_source.html#l00076">usart.c:76</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a70af21c671abfcc773614a9a4f63d920" name="a70af21c671abfcc773614a9a4f63d920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70af21c671abfcc773614a9a4f63d920">&#9670;&#160;</a></span>SystemClock_Config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SystemClock_Config </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>System Clock Configuration. </p>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Configure the main internal regulator output voltage</p>
+<p>Initializes the RCC Oscillators according to the specified parameters in the RCC_OscInitTypeDef structure.</p>
+<p>Initializes the CPU, AHB and APB buses clocks</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00160">160</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  161</span>{</div>
+<div class="line"><span class="lineno">  162</span>  RCC_OscInitTypeDef RCC_OscInitStruct = {0};</div>
+<div class="line"><span class="lineno">  163</span>  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};</div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  167</span>  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);</div>
+<div class="line"><span class="lineno">  168</span> </div>
+<div class="line"><span class="lineno">  172</span>  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;</div>
+<div class="line"><span class="lineno">  173</span>  RCC_OscInitStruct.HSEState = RCC_HSE_ON;</div>
+<div class="line"><span class="lineno">  174</span>  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;</div>
+<div class="line"><span class="lineno">  175</span>  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;</div>
+<div class="line"><span class="lineno">  176</span>  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV6;</div>
+<div class="line"><span class="lineno">  177</span>  RCC_OscInitStruct.PLL.PLLN = 85;</div>
+<div class="line"><span class="lineno">  178</span>  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;</div>
+<div class="line"><span class="lineno">  179</span>  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;</div>
+<div class="line"><span class="lineno">  180</span>  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;</div>
+<div class="line"><span class="lineno">  181</span>  <span class="keywordflow">if</span> (HAL_RCC_OscConfig(&amp;RCC_OscInitStruct) != HAL_OK)</div>
+<div class="line"><span class="lineno">  182</span>  {</div>
+<div class="line"><span class="lineno">  183</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  184</span>  }</div>
+<div class="line"><span class="lineno">  185</span> </div>
+<div class="line"><span class="lineno">  188</span>  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK</div>
+<div class="line"><span class="lineno">  189</span>                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;</div>
+<div class="line"><span class="lineno">  190</span>  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;</div>
+<div class="line"><span class="lineno">  191</span>  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;</div>
+<div class="line"><span class="lineno">  192</span>  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;</div>
+<div class="line"><span class="lineno">  193</span>  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;</div>
+<div class="line"><span class="lineno">  194</span> </div>
+<div class="line"><span class="lineno">  195</span>  <span class="keywordflow">if</span> (HAL_RCC_ClockConfig(&amp;RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)</div>
+<div class="line"><span class="lineno">  196</span>  {</div>
+<div class="line"><span class="lineno">  197</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  198</span>  }</div>
+<div class="line"><span class="lineno">  199</span>}</div>
+<div class="ttc" id="amain_8c_html_a1730ffe1e560465665eb47d9264826f9"><div class="ttname"><a href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a></div><div class="ttdeci">void Error_Handler(void)</div><div class="ttdoc">This function is executed in case of error occurrence.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00235">main.c:235</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a4ebc69d04b4a5889106a7eb3fc59bfd1" name="a4ebc69d04b4a5889106a7eb3fc59bfd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ebc69d04b4a5889106a7eb3fc59bfd1">&#9670;&#160;</a></span>command</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char command[32]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tampon de commande </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00054">54</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<a id="a266732d9c228f9bac150e7554734d112" name="a266732d9c228f9bac150e7554734d112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a266732d9c228f9bac150e7554734d112">&#9670;&#160;</a></span>idx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t idx =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indice de la commande en cours de réception </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00055">55</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<a id="a6ed2ea057b34a0460fd536c5ea709dae" name="a6ed2ea057b34a0460fd536c5ea709dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed2ea057b34a0460fd536c5ea709dae">&#9670;&#160;</a></span>it_uart2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t it_uart2 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indicateur d'interruption pour l'UART2 </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00053">53</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<a id="a755cb53f91881bf4852a1765ffc09dd6" name="a755cb53f91881bf4852a1765ffc09dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a755cb53f91881bf4852a1765ffc09dd6">&#9670;&#160;</a></span>started</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t started[] =&quot;Bienvenue dans le Shell de controle de la MCC \r\n&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Message de démarrage du programme </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00056">56</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<a id="a997fd09dd1c68f51e77519c666b897d2" name="a997fd09dd1c68f51e77519c666b897d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997fd09dd1c68f51e77519c666b897d2">&#9670;&#160;</a></span>uartRxBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char uartRxBuffer[1]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Buffer de réception UART </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00052">52</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

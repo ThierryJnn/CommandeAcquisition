@@ -1,0 +1,69 @@
+\doxysection{process\+Command.\+c}
+\hypertarget{process_command_8c_source}{}\label{process_command_8c_source}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/processCommand.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/processCommand.c}}
+\mbox{\hyperlink{process_command_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00002}00002\ \textcolor{comment}{\ *\ processCommand.c}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00004}00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Oct\ 3,\ 2023}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00005}00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ thier}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}adc.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}tim.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}speed.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}usart.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}pinout.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}startMotor.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}stopMotor.h"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00025}\mbox{\hyperlink{process_command_8c_af86685d260bf1b9f92bec64bdac8df49}{00025}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{process_command_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}=0;\ \textcolor{comment}{//\ Initie\ la\ variable\ globale\ "{}Power"{}\ à\ 0\ au\ démarrage\ du\ programme\ car\ le\ moteur\ est\ éteint.}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00033}\mbox{\hyperlink{process_command_8c_a79403147e94f68125edd1dbd1da03a06}{00033}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{process_command_8c_a79403147e94f68125edd1dbd1da03a06}{processCommand}}(\textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8c_a4ebc69d04b4a5889106a7eb3fc59bfd1}{command}})\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ Vérifie\ si\ la\ commande\ est\ "{}help"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{main_8c_a4ebc69d04b4a5889106a7eb3fc59bfd1}{command}},\ \textcolor{stringliteral}{"{}help"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Affiche\ le\ message\ d'aide}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Commandes\ disponibles\ :\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Commandes\ disponibles\ :\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}\ -\/\ help\ :\ Affiche\ ce\ message\ d'aide\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}\ -\/\ help\ :\ Affiche\ ce\ message\ d'aide\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}\ -\/\ pinout\ :\ Affiche\ la\ configuration\ des\ pins\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}\ -\/\ pinout\ :\ Affiche\ la\ configuration\ des\ pins\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}\ -\/\ start\ :\ Demarre\ le\ moteur\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}\ -\/\ start\ :\ Demarre\ le\ moteur\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}\ -\/\ stop\ :\ Arrete\ le\ moteur\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}\ -\/\ start\ :\ Arrete\ le\ moteur\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}\ -\/\ speed\ xxxx\ :\ Regle\ la\ vitesse\ du\ moteur\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}\ -\/\ speed\ xxxx\ :\ Regle\ la\ vitesse\ du\ moteur\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}\ \ -\/-\/\ xxxx\ est\ compris\ entre\ 0\ et\ 1024,\ a\ 512\ le\ moteur\ est\ a\ l'arret\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}\ \ \ -\/-\/\ xxxx\ est\ compris\ entre\ 0\ et\ 1024,\ a\ 512\ le\ moteur\ est\ a\ l'arret\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ajoutez\ d'autres\ commandes\ et\ leurs\ descriptions\ ici}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Vérifie\ si\ la\ commande\ est\ "{}pinout"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{main_8c_a4ebc69d04b4a5889106a7eb3fc59bfd1}{command}},\ \textcolor{stringliteral}{"{}pinout"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{pinout_8c_a78b88b11df8b07b9a760d1c01bf15e5a}{pinout}}();\ \textcolor{comment}{//\ Appeler\ la\ fonction\ pinout}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00052}00052\ \ \ \ \ \textcolor{comment}{//\ Vérifie\ si\ la\ commande\ est\ "{}start"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{main_8c_a4ebc69d04b4a5889106a7eb3fc59bfd1}{command}},\ \textcolor{stringliteral}{"{}start"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{start_motor_8c_a38e4b9838f7dc595ffb571461204365b}{startMotor}}();\ \textcolor{comment}{//\ Appeler\ la\ fonction\ startMotor}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00057}00057\ \ \ \ \ \textcolor{comment}{//\ Vérifie\ si\ la\ commande\ est\ "{}stop"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{main_8c_a4ebc69d04b4a5889106a7eb3fc59bfd1}{command}},\ \textcolor{stringliteral}{"{}stop"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stop_motor_8c_ac485965697295992f2599633a3f5126a}{stopMotor}}();\ \textcolor{comment}{//\ Appeler\ la\ fonction\ stopMotor}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ Vérifie\ si\ la\ commande\ commence\ par\ "{}speed"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (strncmp(\mbox{\hyperlink{main_8c_a4ebc69d04b4a5889106a7eb3fc59bfd1}{command}},\ \textcolor{stringliteral}{"{}speed"{}},\ 5)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extrait\ les\ quatre\ chiffres\ suivant\ "{}speed"{}}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ digit;}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sscanf(\mbox{\hyperlink{main_8c_a4ebc69d04b4a5889106a7eb3fc59bfd1}{command}}\ +\ 5,\ \textcolor{stringliteral}{"{}\%d"{}},\ \&digit)\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{speed_8c_adbad1393d8d099222864583096979669}{speed}}(digit);\ \textcolor{comment}{//\ Appeler\ la\ fonction\ speed\ avec\ les\ 4\ chiffres\ en\ argument}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Format\ incorrect.\ Utilisation\ :\ speed\ <chiffre>\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Format\ incorrect.\ Utilisation\ :\ speed\ <chiffre>\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Commande\ inconnue\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Commande\ inconnue\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ Ajouter\ d'autres\ conditions\ pour\ d'autres\ commandes\ si\ nécessaire}}
+\DoxyCodeLine{\Hypertarget{process_command_8c_source_l00076}00076\ \}}
+
+\end{DoxyCode}

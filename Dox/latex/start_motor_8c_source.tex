@@ -1,0 +1,41 @@
+\doxysection{start\+Motor.\+c}
+\hypertarget{start_motor_8c_source}{}\label{start_motor_8c_source}\index{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/startMotor.c@{C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-\/G474RET6-\/Inverter\_Pinout/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/startMotor.c}}
+\mbox{\hyperlink{start_motor_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00002}00002\ \textcolor{comment}{\ *\ startMotor.c}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00004}00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Oct\ 3,\ 2023}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00005}00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ thier}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}adc.h"{}}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}tim.h"{}}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}usart.h"{}}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00021}00021\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}};\ \textcolor{comment}{//\ Variable\ externe\ indiquant\ l'état\ de\ la\ puissance\ du\ moteur\ (allumé/éteint)}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00030}\mbox{\hyperlink{start_motor_8c_a38e4b9838f7dc595ffb571461204365b}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{start_motor_8c_a38e4b9838f7dc595ffb571461204365b}{startMotor}}()\ \{}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ Activez\ l'étage\ de\ puissance\ du\ moteur\ (code\ pour\ activer\ le\ moteur)}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}==0)\{}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ moteur\ est\ éteint,\ activez-\/le}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{start_motor_8c_af86685d260bf1b9f92bec64bdac8df49}{Power}}=1;\ \textcolor{comment}{//\ Met\ à\ jour\ l'état\ de\ la\ puissance\ du\ moteur}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ pour\ le\ canal\ 1\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ pour\ le\ canal\ 2\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ HAL\_TIMEx\_PWMN\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ complémentaire\ pour\ le\ canal\ 1\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ HAL\_TIMEx\_PWMN\_Start(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);\ \textcolor{comment}{//\ Démarre\ le\ PWM\ complémentaire\ pour\ le\ canal\ 2\ du\ TIM1}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_1,1024-\/512);\ \textcolor{comment}{//\ Réglez\ le\ rapport\ cyclique\ pour\ le\ canal\ 1}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{stm32g4xx__it_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},TIM\_CHANNEL\_2,512);\ \textcolor{comment}{//\ Réglez\ le\ rapport\ cyclique\ pour\ le\ canal\ 2}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Affichez\ le\ message\ "{}Power\ ON"{}\ dans\ la\ console}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Power\ ON\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Power\ ON\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Quittez\ la\ fonction\ après\ avoir\ allumé\ le\ moteur}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ moteur\ est\ déjà\ allumé,\ affichez\ un\ message\ correspondant}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{stm32g4xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \textcolor{stringliteral}{"{}Moteur\ déjà\ allumé\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Moteur\ déjà\ allumé\(\backslash\)r\(\backslash\)n"{}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{start_motor_8c_source_l00049}00049\ \}}
+
+\end{DoxyCode}

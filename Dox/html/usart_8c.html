@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP Systèmes d&#39;acquisition et de commande: Référence du fichier C:/Users/thier/OneDrive/Bureau/.git/NUCLEO-G474RET6-Inverter_Pinout/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/usart.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Logo_ENSEA.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">TP Systèmes d&#39;acquisition et de commande<span id="projectnumber">&#160;. JANNIN Thierry &amp; GOBOLO Johan</span>
+   </div>
+   <div id="projectbrief">Commande en vitesse d&#39;une MCC par generation de PWM en commande complémentaire décalé</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_891d5bba68483912d1661383b9728971.html">.git</a></li><li class="navelem"><a class="el" href="dir_31ddab8a84a122938313feeebde3a7a1.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_b06806316106b8d7c92018c3922f5894.html">NUCLEO-G474RET6-Inverter_Pinout</a></li><li class="navelem"><a class="el" href="dir_36c73d1e8ff5eccf1d80b88c5e18c792.html">Core</a></li><li class="navelem"><a class="el" href="dir_dd27d23cc0de33be28462a3b1ce1ae6f.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier usart.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This file provides code for the configuration of the USART instances.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;usart.h&quot;</code><br />
+</div>
+<p><a href="usart_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a94cd2c58add4f2549895a03bf267622e" id="r_a94cd2c58add4f2549895a03bf267622e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usart_8c.html#a94cd2c58add4f2549895a03bf267622e">HAL_UART_MspDeInit</a> (UART_HandleTypeDef *uartHandle)</td></tr>
+<tr class="separator:a94cd2c58add4f2549895a03bf267622e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62a25476866998c7aadfb5c0864fa349" id="r_a62a25476866998c7aadfb5c0864fa349"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usart_8c.html#a62a25476866998c7aadfb5c0864fa349">HAL_UART_MspInit</a> (UART_HandleTypeDef *uartHandle)</td></tr>
+<tr class="separator:a62a25476866998c7aadfb5c0864fa349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a052088fe5bb3f807a4b2502e664fd4fd" id="r_a052088fe5bb3f807a4b2502e664fd4fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usart_8c.html#a052088fe5bb3f807a4b2502e664fd4fd">MX_USART2_UART_Init</a> (void)</td></tr>
+<tr class="separator:a052088fe5bb3f807a4b2502e664fd4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d04b903a77089f6ce08dd0bf1c81a81" id="r_a3d04b903a77089f6ce08dd0bf1c81a81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usart_8c.html#a3d04b903a77089f6ce08dd0bf1c81a81">MX_USART3_UART_Init</a> (void)</td></tr>
+<tr class="separator:a3d04b903a77089f6ce08dd0bf1c81a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa9479c261d65eecedd3d9582f7f0f89c" id="r_aa9479c261d65eecedd3d9582f7f0f89c"><td class="memItemLeft" align="right" valign="top">UART_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a></td></tr>
+<tr class="separator:aa9479c261d65eecedd3d9582f7f0f89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c63c1b0f65db92b6a4ea19edf957e1" id="r_ab7c63c1b0f65db92b6a4ea19edf957e1"><td class="memItemLeft" align="right" valign="top">UART_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a></td></tr>
+<tr class="separator:ab7c63c1b0f65db92b6a4ea19edf957e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>This file provides code for the configuration of the USART instances. </p>
+<dl class="section attention"><dt>Attention</dt><dd></dd></dl>
+<p>Copyright (c) 2023 STMicroelectronics. All rights reserved.</p>
+<p>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="usart_8c_source.html">usart.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a94cd2c58add4f2549895a03bf267622e" name="a94cd2c58add4f2549895a03bf267622e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94cd2c58add4f2549895a03bf267622e">&#9670;&#160;</a></span>HAL_UART_MspDeInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_UART_MspDeInit </td>
+          <td>(</td>
+          <td class="paramtype">UART_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>uartHandle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>USART2 GPIO Configuration PA2 ---&mdash;&gt; USART2_TX PA3 ---&mdash;&gt; USART2_RX</p>
+<p>USART3 GPIO Configuration PC10 ---&mdash;&gt; USART3_TX PC11 ---&mdash;&gt; USART3_RX</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="usart_8c_source.html#l00197">197</a> du fichier <a class="el" href="usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  198</span>{</div>
+<div class="line"><span class="lineno">  199</span> </div>
+<div class="line"><span class="lineno">  200</span>  <span class="keywordflow">if</span>(uartHandle-&gt;Instance==USART2)</div>
+<div class="line"><span class="lineno">  201</span>  {</div>
+<div class="line"><span class="lineno">  202</span>  <span class="comment">/* USER CODE BEGIN USART2_MspDeInit 0 */</span></div>
+<div class="line"><span class="lineno">  203</span> </div>
+<div class="line"><span class="lineno">  204</span>  <span class="comment">/* USER CODE END USART2_MspDeInit 0 */</span></div>
+<div class="line"><span class="lineno">  205</span>    <span class="comment">/* Peripheral clock disable */</span></div>
+<div class="line"><span class="lineno">  206</span>    __HAL_RCC_USART2_CLK_DISABLE();</div>
+<div class="line"><span class="lineno">  207</span> </div>
+<div class="line"><span class="lineno">  212</span>    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_2|GPIO_PIN_3);</div>
+<div class="line"><span class="lineno">  213</span> </div>
+<div class="line"><span class="lineno">  214</span>    <span class="comment">/* USART2 interrupt Deinit */</span></div>
+<div class="line"><span class="lineno">  215</span>    HAL_NVIC_DisableIRQ(USART2_IRQn);</div>
+<div class="line"><span class="lineno">  216</span>  <span class="comment">/* USER CODE BEGIN USART2_MspDeInit 1 */</span></div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>  <span class="comment">/* USER CODE END USART2_MspDeInit 1 */</span></div>
+<div class="line"><span class="lineno">  219</span>  }</div>
+<div class="line"><span class="lineno">  220</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span>(uartHandle-&gt;Instance==USART3)</div>
+<div class="line"><span class="lineno">  221</span>  {</div>
+<div class="line"><span class="lineno">  222</span>  <span class="comment">/* USER CODE BEGIN USART3_MspDeInit 0 */</span></div>
+<div class="line"><span class="lineno">  223</span> </div>
+<div class="line"><span class="lineno">  224</span>  <span class="comment">/* USER CODE END USART3_MspDeInit 0 */</span></div>
+<div class="line"><span class="lineno">  225</span>    <span class="comment">/* Peripheral clock disable */</span></div>
+<div class="line"><span class="lineno">  226</span>    __HAL_RCC_USART3_CLK_DISABLE();</div>
+<div class="line"><span class="lineno">  227</span> </div>
+<div class="line"><span class="lineno">  232</span>    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_10|GPIO_PIN_11);</div>
+<div class="line"><span class="lineno">  233</span> </div>
+<div class="line"><span class="lineno">  234</span>  <span class="comment">/* USER CODE BEGIN USART3_MspDeInit 1 */</span></div>
+<div class="line"><span class="lineno">  235</span> </div>
+<div class="line"><span class="lineno">  236</span>  <span class="comment">/* USER CODE END USART3_MspDeInit 1 */</span></div>
+<div class="line"><span class="lineno">  237</span>  }</div>
+<div class="line"><span class="lineno">  238</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a62a25476866998c7aadfb5c0864fa349" name="a62a25476866998c7aadfb5c0864fa349"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62a25476866998c7aadfb5c0864fa349">&#9670;&#160;</a></span>HAL_UART_MspInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_UART_MspInit </td>
+          <td>(</td>
+          <td class="paramtype">UART_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>uartHandle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes the peripherals clocks</p>
+<p>USART2 GPIO Configuration PA2 ---&mdash;&gt; USART2_TX PA3 ---&mdash;&gt; USART2_RX</p>
+<p>Initializes the peripherals clocks</p>
+<p>USART3 GPIO Configuration PC10 ---&mdash;&gt; USART3_TX PC11 ---&mdash;&gt; USART3_RX</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="usart_8c_source.html#l00119">119</a> du fichier <a class="el" href="usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>{</div>
+<div class="line"><span class="lineno">  121</span> </div>
+<div class="line"><span class="lineno">  122</span>  GPIO_InitTypeDef GPIO_InitStruct = {0};</div>
+<div class="line"><span class="lineno">  123</span>  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};</div>
+<div class="line"><span class="lineno">  124</span>  <span class="keywordflow">if</span>(uartHandle-&gt;Instance==USART2)</div>
+<div class="line"><span class="lineno">  125</span>  {</div>
+<div class="line"><span class="lineno">  126</span>  <span class="comment">/* USER CODE BEGIN USART2_MspInit 0 */</span></div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>  <span class="comment">/* USER CODE END USART2_MspInit 0 */</span></div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  132</span>    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2;</div>
+<div class="line"><span class="lineno">  133</span>    PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;</div>
+<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">if</span> (HAL_RCCEx_PeriphCLKConfig(&amp;PeriphClkInit) != HAL_OK)</div>
+<div class="line"><span class="lineno">  135</span>    {</div>
+<div class="line"><span class="lineno">  136</span>      <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  137</span>    }</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>    <span class="comment">/* USART2 clock enable */</span></div>
+<div class="line"><span class="lineno">  140</span>    __HAL_RCC_USART2_CLK_ENABLE();</div>
+<div class="line"><span class="lineno">  141</span> </div>
+<div class="line"><span class="lineno">  142</span>    __HAL_RCC_GPIOA_CLK_ENABLE();</div>
+<div class="line"><span class="lineno">  147</span>    GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3;</div>
+<div class="line"><span class="lineno">  148</span>    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;</div>
+<div class="line"><span class="lineno">  149</span>    GPIO_InitStruct.Pull = GPIO_NOPULL;</div>
+<div class="line"><span class="lineno">  150</span>    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;</div>
+<div class="line"><span class="lineno">  151</span>    GPIO_InitStruct.Alternate = GPIO_AF7_USART2;</div>
+<div class="line"><span class="lineno">  152</span>    HAL_GPIO_Init(GPIOA, &amp;GPIO_InitStruct);</div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>    <span class="comment">/* USART2 interrupt Init */</span></div>
+<div class="line"><span class="lineno">  155</span>    HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);</div>
+<div class="line"><span class="lineno">  156</span>    HAL_NVIC_EnableIRQ(USART2_IRQn);</div>
+<div class="line"><span class="lineno">  157</span>  <span class="comment">/* USER CODE BEGIN USART2_MspInit 1 */</span></div>
+<div class="line"><span class="lineno">  158</span> </div>
+<div class="line"><span class="lineno">  159</span>  <span class="comment">/* USER CODE END USART2_MspInit 1 */</span></div>
+<div class="line"><span class="lineno">  160</span>  }</div>
+<div class="line"><span class="lineno">  161</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span>(uartHandle-&gt;Instance==USART3)</div>
+<div class="line"><span class="lineno">  162</span>  {</div>
+<div class="line"><span class="lineno">  163</span>  <span class="comment">/* USER CODE BEGIN USART3_MspInit 0 */</span></div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  165</span>  <span class="comment">/* USER CODE END USART3_MspInit 0 */</span></div>
+<div class="line"><span class="lineno">  166</span> </div>
+<div class="line"><span class="lineno">  169</span>    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART3;</div>
+<div class="line"><span class="lineno">  170</span>    PeriphClkInit.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;</div>
+<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">if</span> (HAL_RCCEx_PeriphCLKConfig(&amp;PeriphClkInit) != HAL_OK)</div>
+<div class="line"><span class="lineno">  172</span>    {</div>
+<div class="line"><span class="lineno">  173</span>      <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  174</span>    }</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>    <span class="comment">/* USART3 clock enable */</span></div>
+<div class="line"><span class="lineno">  177</span>    __HAL_RCC_USART3_CLK_ENABLE();</div>
+<div class="line"><span class="lineno">  178</span> </div>
+<div class="line"><span class="lineno">  179</span>    __HAL_RCC_GPIOC_CLK_ENABLE();</div>
+<div class="line"><span class="lineno">  184</span>    GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11;</div>
+<div class="line"><span class="lineno">  185</span>    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;</div>
+<div class="line"><span class="lineno">  186</span>    GPIO_InitStruct.Pull = GPIO_NOPULL;</div>
+<div class="line"><span class="lineno">  187</span>    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;</div>
+<div class="line"><span class="lineno">  188</span>    GPIO_InitStruct.Alternate = GPIO_AF7_USART3;</div>
+<div class="line"><span class="lineno">  189</span>    HAL_GPIO_Init(GPIOC, &amp;GPIO_InitStruct);</div>
+<div class="line"><span class="lineno">  190</span> </div>
+<div class="line"><span class="lineno">  191</span>  <span class="comment">/* USER CODE BEGIN USART3_MspInit 1 */</span></div>
+<div class="line"><span class="lineno">  192</span> </div>
+<div class="line"><span class="lineno">  193</span>  <span class="comment">/* USER CODE END USART3_MspInit 1 */</span></div>
+<div class="line"><span class="lineno">  194</span>  }</div>
+<div class="line"><span class="lineno">  195</span>}</div>
+<div class="ttc" id="amain_8c_html_a1730ffe1e560465665eb47d9264826f9"><div class="ttname"><a href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a></div><div class="ttdeci">void Error_Handler(void)</div><div class="ttdoc">This function is executed in case of error occurrence.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00235">main.c:235</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a052088fe5bb3f807a4b2502e664fd4fd" name="a052088fe5bb3f807a4b2502e664fd4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a052088fe5bb3f807a4b2502e664fd4fd">&#9670;&#160;</a></span>MX_USART2_UART_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_USART2_UART_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="usart_8c_source.html#l00032">32</a> du fichier <a class="el" href="usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>{</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>  <span class="comment">/* USER CODE BEGIN USART2_Init 0 */</span></div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>  <span class="comment">/* USER CODE END USART2_Init 0 */</span></div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>  <span class="comment">/* USER CODE BEGIN USART2_Init 1 */</span></div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>  <span class="comment">/* USER CODE END USART2_Init 1 */</span></div>
+<div class="line"><span class="lineno">   42</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Instance = USART2;</div>
+<div class="line"><span class="lineno">   43</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.BaudRate = 115200;</div>
+<div class="line"><span class="lineno">   44</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.WordLength = UART_WORDLENGTH_8B;</div>
+<div class="line"><span class="lineno">   45</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.StopBits = UART_STOPBITS_1;</div>
+<div class="line"><span class="lineno">   46</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.Parity = UART_PARITY_NONE;</div>
+<div class="line"><span class="lineno">   47</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.Mode = UART_MODE_TX_RX;</div>
+<div class="line"><span class="lineno">   48</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.HwFlowCtl = UART_HWCONTROL_NONE;</div>
+<div class="line"><span class="lineno">   49</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.OverSampling = UART_OVERSAMPLING_16;</div>
+<div class="line"><span class="lineno">   50</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;</div>
+<div class="line"><span class="lineno">   51</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.Init.ClockPrescaler = UART_PRESCALER_DIV1;</div>
+<div class="line"><span class="lineno">   52</span>  <a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;</div>
+<div class="line"><span class="lineno">   53</span>  <span class="keywordflow">if</span> (HAL_UART_Init(&amp;<a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>) != HAL_OK)</div>
+<div class="line"><span class="lineno">   54</span>  {</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">   56</span>  }</div>
+<div class="line"><span class="lineno">   57</span>  <span class="keywordflow">if</span> (HAL_UARTEx_SetTxFifoThreshold(&amp;<a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)</div>
+<div class="line"><span class="lineno">   58</span>  {</div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">   60</span>  }</div>
+<div class="line"><span class="lineno">   61</span>  <span class="keywordflow">if</span> (HAL_UARTEx_SetRxFifoThreshold(&amp;<a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)</div>
+<div class="line"><span class="lineno">   62</span>  {</div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">   64</span>  }</div>
+<div class="line"><span class="lineno">   65</span>  <span class="keywordflow">if</span> (HAL_UARTEx_DisableFifoMode(&amp;<a class="code hl_variable" href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a>) != HAL_OK)</div>
+<div class="line"><span class="lineno">   66</span>  {</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">   68</span>  }</div>
+<div class="line"><span class="lineno">   69</span>  <span class="comment">/* USER CODE BEGIN USART2_Init 2 */</span></div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>  <span class="comment">/* USER CODE END USART2_Init 2 */</span></div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>}</div>
+<div class="ttc" id="ausart_8c_html_aa9479c261d65eecedd3d9582f7f0f89c"><div class="ttname"><a href="usart_8c.html#aa9479c261d65eecedd3d9582f7f0f89c">huart2</a></div><div class="ttdeci">UART_HandleTypeDef huart2</div><div class="ttdef"><b>Definition</b> <a href="usart_8c_source.html#l00027">usart.c:27</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3d04b903a77089f6ce08dd0bf1c81a81" name="a3d04b903a77089f6ce08dd0bf1c81a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d04b903a77089f6ce08dd0bf1c81a81">&#9670;&#160;</a></span>MX_USART3_UART_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_USART3_UART_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="usart_8c_source.html#l00076">76</a> du fichier <a class="el" href="usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>  <span class="comment">/* USER CODE BEGIN USART3_Init 0 */</span></div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>  <span class="comment">/* USER CODE END USART3_Init 0 */</span></div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>  <span class="comment">/* USER CODE BEGIN USART3_Init 1 */</span></div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>  <span class="comment">/* USER CODE END USART3_Init 1 */</span></div>
+<div class="line"><span class="lineno">   86</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Instance = USART3;</div>
+<div class="line"><span class="lineno">   87</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.BaudRate = 115200;</div>
+<div class="line"><span class="lineno">   88</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.WordLength = UART_WORDLENGTH_8B;</div>
+<div class="line"><span class="lineno">   89</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.StopBits = UART_STOPBITS_1;</div>
+<div class="line"><span class="lineno">   90</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.Parity = UART_PARITY_NONE;</div>
+<div class="line"><span class="lineno">   91</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.Mode = UART_MODE_TX_RX;</div>
+<div class="line"><span class="lineno">   92</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.HwFlowCtl = UART_HWCONTROL_NONE;</div>
+<div class="line"><span class="lineno">   93</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.OverSampling = UART_OVERSAMPLING_16;</div>
+<div class="line"><span class="lineno">   94</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;</div>
+<div class="line"><span class="lineno">   95</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.Init.ClockPrescaler = UART_PRESCALER_DIV1;</div>
+<div class="line"><span class="lineno">   96</span>  <a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;</div>
+<div class="line"><span class="lineno">   97</span>  <span class="keywordflow">if</span> (HAL_UART_Init(&amp;<a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>) != HAL_OK)</div>
+<div class="line"><span class="lineno">   98</span>  {</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  100</span>  }</div>
+<div class="line"><span class="lineno">  101</span>  <span class="keywordflow">if</span> (HAL_UARTEx_SetTxFifoThreshold(&amp;<a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)</div>
+<div class="line"><span class="lineno">  102</span>  {</div>
+<div class="line"><span class="lineno">  103</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  104</span>  }</div>
+<div class="line"><span class="lineno">  105</span>  <span class="keywordflow">if</span> (HAL_UARTEx_SetRxFifoThreshold(&amp;<a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)</div>
+<div class="line"><span class="lineno">  106</span>  {</div>
+<div class="line"><span class="lineno">  107</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  108</span>  }</div>
+<div class="line"><span class="lineno">  109</span>  <span class="keywordflow">if</span> (HAL_UARTEx_DisableFifoMode(&amp;<a class="code hl_variable" href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a>) != HAL_OK)</div>
+<div class="line"><span class="lineno">  110</span>  {</div>
+<div class="line"><span class="lineno">  111</span>    <a class="code hl_function" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>();</div>
+<div class="line"><span class="lineno">  112</span>  }</div>
+<div class="line"><span class="lineno">  113</span>  <span class="comment">/* USER CODE BEGIN USART3_Init 2 */</span></div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>  <span class="comment">/* USER CODE END USART3_Init 2 */</span></div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>}</div>
+<div class="ttc" id="ausart_8c_html_ab7c63c1b0f65db92b6a4ea19edf957e1"><div class="ttname"><a href="usart_8c.html#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a></div><div class="ttdeci">UART_HandleTypeDef huart3</div><div class="ttdef"><b>Definition</b> <a href="usart_8c_source.html#l00028">usart.c:28</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="aa9479c261d65eecedd3d9582f7f0f89c" name="aa9479c261d65eecedd3d9582f7f0f89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9479c261d65eecedd3d9582f7f0f89c">&#9670;&#160;</a></span>huart2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UART_HandleTypeDef huart2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="usart_8c_source.html#l00027">27</a> du fichier <a class="el" href="usart_8c_source.html">usart.c</a>.</p>
+
+</div>
+</div>
+<a id="ab7c63c1b0f65db92b6a4ea19edf957e1" name="ab7c63c1b0f65db92b6a4ea19edf957e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c63c1b0f65db92b6a4ea19edf957e1">&#9670;&#160;</a></span>huart3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UART_HandleTypeDef huart3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="usart_8c_source.html#l00028">28</a> du fichier <a class="el" href="usart_8c_source.html">usart.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
